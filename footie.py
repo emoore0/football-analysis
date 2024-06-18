@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from flask import Flask, render_template_string
 
 
 
@@ -101,6 +102,7 @@ class footie:
             elif '-' in value:
                 return value.split('-')[0]
             return value
+        
         best['xG'] = best['xG'].apply(clean)
         best['xA']=best['xA'].apply(clean)
         best['xGI90'] = best['xA90'] + best['xG90']
@@ -109,56 +111,46 @@ class footie:
         best['xG'] = pd.to_numeric(best['xG'])
         
         report = ''
-        report += "Welcome to The Model's best perfoming players list"
-        report += '\n'
-        report += 'World Class Stats\n'
-        report += '\n'
-        world_class = best[best['xGI90'] >1]
-        sorted_world_class = world_class.sort_values(by='xGI90',ascending=False)
-        report += sorted_world_class.to_string()
-        report += '\n'
-        report += '\n'
-        report += 'Elite Stats\n'
-        report += '\n'
-        elite = best[(best['xGI90'] >= 0.65) & (best['xGI90'] <= 1)] 
+        report += "Welcome to The Model's best performing players list<br>"
+        report += '<h2>World Class Stats</h2><br>'
+        world_class = best[best['xGI90'] > 1]
+        sorted_world_class = world_class.sort_values(by='xGI90', ascending=False)
+        report += sorted_world_class.to_html(index=False)
+        report += '<br>'
+        report += '<h2>Elite Stats</h2><br>'
+        elite = best[(best['xGI90'] >= 0.65) & (best['xGI90'] <= 1)]
         sorted_elite = elite.sort_values(by='xGI90', ascending=False)
-        report += sorted_elite.to_string()
-        report += '\n'
-        report += '\n'
-        report += 'Good Stats\n'
-        report += '\n'
-        good = best[(best['xGI90'] >= 0.5) & (best['xGI90'] < 0.65)] 
+        report += sorted_elite.to_html(index=False)
+        report += '<br>'
+        report += '<h2>Good Stats</h2><br>'
+        good = best[(best['xGI90'] >= 0.5) & (best['xGI90'] < 0.65)]
         sorted_good = good.sort_values(by='xGI90', ascending=False)
-        report += sorted_good.to_string()
-        report += '\n'
-        report += '\n'
-        report += 'Anamolous Stats\n'
-        report +='\n'
-        anamoly = best[((best['G'] - best['xG']) >= 2.50) & (best['GI'] > 10)]
-        sorted_anamoly = anamoly.sort_values(by='GI',ascending=False)
-        report += sorted_anamoly.to_string()
-        report += '\n'
-        report += '\n'
-        report += 'Underperformers Stats\n'
-        report +='\n'
-        underpeformer = best[((best['xG'] - best['G']) >= 2.5) & (best['GI'] > 10)]
-        sorted_underperfomer= underpeformer.sort_values(by='GI',ascending=True)
-        report += sorted_underperfomer.to_string()
-        
-
-
-        
-        
+        report += sorted_good.to_html(index=False)
+        report += '<br>'
+        report += '<h2>Anomalous Stats</h2><br>'
+        anomaly = best[((best['G'] - best['xG']) >= 2.50) & (best['GI'] > 10)]
+        sorted_anomaly = anomaly.sort_values(by='GI', ascending=False)
+        report += sorted_anomaly.to_html(index=False)
+        report += '<br>'
+        report += '<h2>Underperformers Stats</h2><br>'
+        underperformer = best[((best['xG'] - best['G']) >= 2.5) & (best['GI'] > 10)]
+        sorted_underperformer = underperformer.sort_values(by='GI', ascending=True)
+        report += sorted_underperformer.to_html(index=False)
 
         return report
         
         
 
+app = Flask(__name__)
 
-
-
+# Create an instance of the class with the correct relative path
 f = footie('PL 23-24 Data.csv')
-#print(f.teams)
-#f.outcomes(7,"home")
-print(f.the_best()) 
-#anything above 0.6 xG90 + xA90 is great! get this data from understat 
+@app.route('/')
+def home():
+    report = f.the_best()
+    return render_template_string(report)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=80)
+
+
