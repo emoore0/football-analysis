@@ -36,7 +36,7 @@ jobs:
         username: ubuntu
         key: ${{ secrets.AWS_EC2_SSH_KEY }}
         script: |
-          docker pull ${{ secrets.DOCKER_USERNAME }}/football-app:latest
-          docker stop football-app || true
-          docker rm football-app || true
-          docker run -d -p 80:80 --name football-app ${{ secrets.DOCKER_USERNAME }}/football-app:latest
+          sudo docker pull ${{ secrets.DOCKER_USERNAME }}/football-app:latest
+          sudo docker stop football-app || true
+          sudo docker rm football-app || true
+          sudo docker run -d -p 80:80 --name football-app ${{ secrets.DOCKER_USERNAME }}/football-app:latest
