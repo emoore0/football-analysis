@@ -139,8 +139,6 @@ class footie:
 
         return report
         
-        
-
 app = Flask(__name__)
 
 # Create an instance of the class with the correct relative path
