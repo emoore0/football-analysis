@@ -128,6 +128,7 @@ class footie:
         report += sorted_good.to_html(index=False)
         report += '<br>'
         report += '<h2>Anomalous Stats</h2><br>'
+        report += '<br>'
         report += 'Players in this category have achieved stats which are very rare.'
         report += 'This indicates that these players have a special set of skills which allow them to perform in this manner<br>'
         anomaly = best[((best['G'] - best['xG']) >= 2.50) & (best['GI'] > 10)]
