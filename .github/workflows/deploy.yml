@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main
+      - azure
 
 jobs:
   build:
@@ -29,12 +29,12 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/football-app:latest
 
-    - name: Deploy to AWS EC2
+    - name: Deploy to Azure VM
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.AWS_EC2_HOST }}
+        host: ${{ secrets.AZURE_VM_HOST }}
         username: ubuntu
-        key: ${{ secrets.AWS_EC2_SSH_KEY }}
+        key: ${{ secrets.AZURE_VM_SSH_KEY }}
         script: |
           sudo docker pull ${{ secrets.DOCKER_USERNAME }}/football-app:latest
           sudo docker stop football-app || true
