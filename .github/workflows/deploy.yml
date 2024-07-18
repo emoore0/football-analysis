@@ -33,7 +33,7 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.AZURE_VM_HOST }}
-        username: ubuntu
+        username: azureuser
         key: ${{ secrets.AZURE_VM_SSH_KEY }}
         script: |
           sudo docker pull ${{ secrets.DOCKER_USERNAME }}/football-app:latest
