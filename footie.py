@@ -64,7 +64,7 @@ class footie:
             plt.xticks(fontsize=6)
             plt.xlabel('Teams')
             plt.ylabel('Home Wins')
-            plt.savefigs(os.path.join('/home/ubuntu/app','home.png'))
+            plt.savefig(os.path.join('/home/ubuntu/app','home.png'))
             graph = ''
             graph += "<title>PL Teams in order of Home Wins</title><br>"
             graph += "<body>"
