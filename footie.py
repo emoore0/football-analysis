@@ -157,9 +157,7 @@ f = footie('PL 23-24 Data.csv')
 def home():
     report = f.the_best()
     return render_template_string(report)
-    #graph = f.outcomes(10,"home")
-    #return render_template_string(graph)
-
+    
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
 
