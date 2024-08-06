@@ -64,8 +64,15 @@ class footie:
             plt.xticks(fontsize=6)
             plt.xlabel('Teams')
             plt.ylabel('Home Wins')
-            plt.tight_layout()
-            plt.show()
+            plt.savefig(os.path.join('/home/ubuntu/app','home.png'))
+            graph = ''
+            graph += "<title>PL Teams in order of Home Wins</title><br>"
+            graph += "<body>"
+            graph += "<img src="{{ url_for('/home/ubuntu/app', filename='plot.png') }}"> "
+            graph += "</body>"
+            return graph
+            #plt.tight_layout()
+            #plt.show()
         elif result == "away":
             sorted_awins = dict(sorted(away_win.items(), key=lambda item:item[1],reverse=True))
             Awins_teams = []
