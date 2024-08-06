@@ -155,8 +155,11 @@ app = Flask(__name__)
 f = footie('PL 23-24 Data.csv')
 @app.route('/')
 def home():
-    report = f.the_best()
-    return render_template_string(report)
+    #report = f.the_best()
+    #return render_template_string(report)
+    plot = f.outcomes(10,"home")
+    return render_template_string(plot)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
