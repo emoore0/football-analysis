@@ -94,7 +94,7 @@ class footie:
 
     def the_best(self):
         best = pd.read_csv('The Best.csv')
-        #return best['xG']
+        
 
         def clean(value):
             if '+' in value:
