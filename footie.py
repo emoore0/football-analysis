@@ -52,10 +52,10 @@ class footie:
                 Hwins_teams.append(list(sorted_hwins.keys())[team])
                 Hwins_values.append(list(sorted_hwins.values())[team])
                 
-            colors = cmap(np.linspace(0, 1, len(Hwins_teams)))
+            #colors = cmap(np.linspace(0, 1, len(Hwins_teams)))
             fig = Figure()
             ax = fig.subplots()
-            ax.bar(Hwins_teams,Hwins_values,color=colors)
+            ax.bar(Hwins_teams,Hwins_values)
             ax.xticks(fontsize=6)
             ax.xlabel('Teams')
             ax.ylabel('Home Wins')
