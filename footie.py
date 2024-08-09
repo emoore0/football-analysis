@@ -56,7 +56,6 @@ class footie:
             fig = Figure()
             ax = fig.subplots()
             ax.bar(Hwins_teams,Hwins_values)
-            ax.xticks(fontsize=6)
             ax.xlabel('Teams')
             ax.ylabel('Home Wins')
             buf = BytesIO()
