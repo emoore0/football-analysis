@@ -1,4 +1,7 @@
 import matplotlib.pyplot as plt
+import base64
+from io import BytesIO
+from matplotlib.figure import Figure
 import numpy as np
 import pandas as pd
 from flask import Flask, render_template_string
@@ -49,30 +52,33 @@ class footie:
                 Hwins_teams.append(list(sorted_hwins.keys())[team])
                 Hwins_values.append(list(sorted_hwins.values())[team])
                 
-
+            colors = cmap(np.linspace(0, 1, len(Hwins_teams)))
+            fig = Figure()
+            ax = fig.subplots()
+            ax.bar(Hwins_teams,Hwins_values,color=colors)
+            ax.xticks(fontsize=6)
+            ax.xlabel('Teams')
+            ax.ylabel('Home Wins')
+            buf = BytesIO()
+            fig.savefig(buf,format="png")
+            data = base64.b64encode(buf.getbuffer()).decode("ascii")
+            return f"<img src='data:image/png;base64,{data}'/>"
             #Hwins_teams = list(sorted_hwins.keys())
             #Hwins_values = list(sorted_hwins.values())
 
-            plt.figure(figsize=(11,7))
-            cmap = plt.get_cmap('plasma')  # You can change 'viridis' to other colormaps like 'plasma', 'inferno', 'magma', etc.
-            colors = cmap(np.linspace(0, 1, len(Hwins_teams)))
+            # plt.figure(figsize=(11,7))
+            # cmap = plt.get_cmap('plasma')  # You can change 'viridis' to other colormaps like 'plasma', 'inferno', 'magma', etc.
+            # colors = cmap(np.linspace(0, 1, len(Hwins_teams)))
 
-            plt.bar(Hwins_teams,Hwins_values,color=colors)
+            # plt.bar(Hwins_teams,Hwins_values,color=colors)
 
-            for i in range(len(Hwins_values)):
-                plt.text(i, Hwins_values[i] + 0.5, str(Hwins_values[i]), ha='center')
-            plt.xticks(fontsize=6)
-            plt.xlabel('Teams')
-            plt.ylabel('Home Wins')
-            # plt.savefig(os.path.join('/home/ubuntu/app','home.png'))
-            # graph = ''
-            # graph += "<title>PL Teams in order of Home Wins</title><br>"
-            # graph += "<body>"
-            # graph += "<img src="{{ url_for('/home/ubuntu/app', filename='plot.png') }}"> "
-            # graph += "</body>"
-            # return graph
-            plt.tight_layout()
-            plt.show()
+            # for i in range(len(Hwins_values)):
+            #     plt.text(i, Hwins_values[i] + 0.5, str(Hwins_values[i]), ha='center')
+            # plt.xticks(fontsize=6)
+            # plt.xlabel('Teams')
+            # plt.ylabel('Home Wins')
+            # plt.tight_layout()
+            # plt.show()
         elif result == "away":
             sorted_awins = dict(sorted(away_win.items(), key=lambda item:item[1],reverse=True))
             Awins_teams = []
@@ -155,8 +161,10 @@ app = Flask(__name__)
 f = footie('PL 23-24 Data.csv')
 @app.route('/')
 def home():
-    report = f.the_best()
-    return render_template_string(report)
+    #report = f.the_best()
+    #return render_template_string(report)
+    plot = f.outcomes(10,"home")
+    return plot
 
 
 if __name__ == '__main__':
