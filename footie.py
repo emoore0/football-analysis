@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import mpld3
 from flask import Flask, render_template_string
 
 
@@ -158,8 +157,6 @@ f = footie('PL 23-24 Data.csv')
 def home():
     report = f.the_best()
     return render_template_string(report)
-    #plot = f.outcomes(10,"home")
-    #return render_template_string(plot)
 
 
 if __name__ == '__main__':
