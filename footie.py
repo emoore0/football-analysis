@@ -63,7 +63,6 @@ class footie:
             fig.savefig(buf,format="png")
             data = base64.b64encode(buf.getbuffer()).decode("ascii")
             plot = '<h1>Most Home in wins in the Premier League</h1><br>'
-            plot += '<br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
             return plot
             #Hwins_teams = list(sorted_hwins.keys())
@@ -93,20 +92,19 @@ class footie:
 
             #Hwins_teams = list(sorted_hwins.keys())
             #Hwins_values = list(sorted_hwins.values())
+            fig = Figure(figsize=(12, 8))
+            ax = fig.subplots()
+            colors = ['#3498db', '#e74c3c', '#2ecc71', '#f1c40f','#9b59b6', '#34495e', '#16a085', '#e67e22','#95a5a6', '#d35400', '#c0392b', '#7f8c8d','#2c3e50', '#27ae60', '#8e44ad', '#1abc9c','#f39c12', '#bdc3c7', '#2980b9', '#e84393'][:len(Hwins_teams)]
+            ax.bar(Awins_teams,Awins_values,color=colors)
+            ax.set_xlabel('Teams')
+            ax.set_ylabel('Away Wins')
+            buf = BytesIO()
+            fig.savefig(buf,format="png")
+            data = base64.b64encode(buf.getbuffer()).decode("ascii")
+            plot = '<h1>Most Away in wins in the Premier League</h1><br>'
+            plot += f"<img src='data:image/png;base64,{data}'/>"
+            return plot
 
-            plt.figure(figsize=(11,7))
-            cmap = plt.get_cmap('magma')  # You can change 'viridis' to other colormaps like 'plasma', 'inferno', 'magma', etc.
-            colors = cmap(np.linspace(0, 1, len(Awins_teams)))
-
-            plt.bar(Awins_teams,Awins_values,color=colors)
-
-            for i in range(len(Awins_values)):
-                plt.text(i, Awins_values[i] + 0.5, str(Awins_values[i]), ha='center')
-            plt.xticks(fontsize=6)
-            plt.xlabel('Teams')
-            plt.ylabel('Away Wins')
-            plt.tight_layout()
-            plt.show()
 
     def the_best(self):
         best = pd.read_csv('The Best.csv')
@@ -157,6 +155,26 @@ class footie:
         report += sorted_underperformer.to_html(index=False)
 
         return report
+
+    def clean_sheets(self,teams,result):
+        home_cs = dict()
+        away_cs = dict()
+        for  idx,val in enumerate(self.data['FTR']):
+            home = self.data['HomeTeam'][idx]
+            away = self.data['AwayTeam'][idx]
+
+            if val == 'H' and self.data['FTAG'][idx] = '0':
+                home_cs[home] = home_cs.get(0,1) +1
+
+            elif val == 'A' and self.data['FTHG'][idx] = '0':
+                away_cs[away] = away_cs.get(0,1) +1
+
+            elif val == 'D' and self.data['FTAG'][idx] = '0':
+                home_cs[home] = home_cs.get(0,1) +1
+                away_cs[away] = away_cs.get(0,1) +1
+
+
+
         
 app = Flask(__name__)
 
