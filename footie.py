@@ -62,7 +62,10 @@ class footie:
             buf = BytesIO()
             fig.savefig(buf,format="png")
             data = base64.b64encode(buf.getbuffer()).decode("ascii")
-            return f"<img src='data:image/png;base64,{data}'/>"
+            plot = '<h1>Most Home in wins in the Premier League</h1><br>'
+            plot += '<br>'
+            plot += f"<img src='data:image/png;base64,{data}'/>"
+            return plot
             #Hwins_teams = list(sorted_hwins.keys())
             #Hwins_values = list(sorted_hwins.values())
 
