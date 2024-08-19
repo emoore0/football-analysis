@@ -176,7 +176,7 @@ class footie:
             #colors = cmap(np.linspace(0, 1, len(Hwins_teams)))
             fig = Figure(figsize=(12, 8))
             ax = fig.subplots()
-            colors = ['#3498db', '#e74c3c', '#2ecc71', '#f1c40f','#9b59b6', '#34495e', '#16a085', '#e67e22','#95a5a6', '#d35400', '#c0392b', '#7f8c8d','#2c3e50', '#27ae60', '#8e44ad', '#1abc9c','#f39c12', '#bdc3c7', '#2980b9', '#e84393'][:len(Hwins_teams)]
+            colors = ['#3498db', '#e74c3c', '#2ecc71', '#f1c40f','#9b59b6', '#34495e', '#16a085', '#e67e22','#95a5a6', '#d35400', '#c0392b', '#7f8c8d','#2c3e50', '#27ae60', '#8e44ad', '#1abc9c','#f39c12', '#bdc3c7', '#2980b9', '#e84393'][:len(Hcs_teams)]
             ax.bar(Hcs_teams,Hcs_values,color=colors)
             ax.set_xlabel('Teams')
             ax.set_ylabel('Home Clean Sheets')
