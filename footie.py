@@ -175,7 +175,7 @@ class footie:
 
         if result == "home":
             sorted_hcs = dict(sorted(home_cs.items(), key=lambda item:item[1],reverse=True))
-            show = f"the list of teams is {sorted_hcs}"
+            show = f"the list of teams is {print(sorted_hcs.keys())}"
             return show        
             Hcs_teams = []
             Hcs_values = []
