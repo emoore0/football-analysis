@@ -163,13 +163,13 @@ class footie:
             home = self.data['HomeTeam'][idx]
             away = self.data['AwayTeam'][idx]
 
-            if val == 'H' and self.data['FTAG'][idx] = '0':
+            if val == 'H' and self.data['FTAG'][idx] == '0':
                 home_cs[home] = home_cs.get(0,1) + 1
 
-            elif val == 'A' and self.data['FTHG'][idx] = '0':
+            elif val == 'A' and self.data['FTHG'][idx] == '0':
                 away_cs[away] = away_cs.get(0,1) + 1
 
-            elif val == 'D' and self.data['FTAG'][idx] = '0':
+            elif val == 'D' and self.data['FTAG'][idx] == '0':
                 home_cs[home] = home_cs.get(0,1) + 1
                 away_cs[away] = away_cs.get(0,1) + 1
 
