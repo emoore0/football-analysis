@@ -159,15 +159,15 @@ class footie:
     def clean_sheets(self,teams,result):
         home_cs = dict()
         away_cs = dict()
-        for idx,val in enumerate(self.data['FTR']):
+        for idx,val in enumerate(self.data['FTAG']):
             home = self.data['HomeTeam'][idx]
             away = self.data['AwayTeam'][idx]
 
-            if self.data['FTAG'][idx] == '0':
+            if val == '0':
                 home_cs[home] = home_cs.get(0,1) + 1
 
-            elif self.data['FTHG'][idx] == '0':
-                away_cs[away] = away_cs.get(0,1) + 1
+            # elif self.data['FTHG'][idx] == '0':
+            #     away_cs[away] = away_cs.get(0,1) + 1
 
             
         show = f"the list of teams is {print(home_cs)}"
