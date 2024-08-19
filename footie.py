@@ -163,14 +163,14 @@ class footie:
             home = self.data['HomeTeam'][idx]
             away = self.data['AwayTeam'][idx]
 
-            if val == '0':
+            if val == 0:
                 home_cs[home] = home_cs.get(0,1) + 1
 
             # elif self.data['FTHG'][idx] == '0':
             #     away_cs[away] = away_cs.get(0,1) + 1
 
             
-        show = f"the list of teams is {print(home_cs)}"
+        show = f"the list of teams is {print(home_cs.keys())}"
         return show 
         if result == "home":
             sorted_hcs = dict(sorted(home_cs.items(), key=lambda item:item[1],reverse=True))
