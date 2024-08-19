@@ -159,7 +159,7 @@ class footie:
     def clean_sheets(self,teams,result):
         home_cs = dict()
         away_cs = dict()
-        for  idx,val in enumerate(self.data['FTR']):
+        for idx,val in enumerate(self.data['FTR']):
             home = self.data['HomeTeam'][idx]
             away = self.data['AwayTeam'][idx]
 
@@ -193,7 +193,8 @@ class footie:
             data = base64.b64encode(buf.getbuffer()).decode("ascii")
             plot = '<h1>Most Home in clean sheets in the Premier League</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
-            return plot
+            show = f"the list of teams is {sorted_hcs}"
+            return show
 
 
 
