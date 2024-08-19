@@ -162,7 +162,7 @@ class footie:
         for idx,val in enumerate(self.data['FTAG']):
             home = self.data['HomeTeam'][idx]
 
-            if val = 0:
+            if val == 0:
                 home_cs[home] = home_cs.get(home,0) + 1
 
         if result == "home":
