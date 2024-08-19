@@ -170,11 +170,11 @@ class footie:
                 away_cs[away] = away_cs.get(0,1) + 1
 
             
-
+        show = f"the list of teams is {print(home_cs)}"
+        return show 
         if result == "home":
             sorted_hcs = dict(sorted(home_cs.items(), key=lambda item:item[1],reverse=True))
-            show = f"the list of teams is {print(home_cs.keys())}"
-            return show        
+                   
             Hcs_teams = []
             Hcs_values = []
             for team in range(teams):
