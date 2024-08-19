@@ -164,14 +164,36 @@ class footie:
             away = self.data['AwayTeam'][idx]
 
             if val == 'H' and self.data['FTAG'][idx] = '0':
-                home_cs[home] = home_cs.get(0,1) +1
+                home_cs[home] = home_cs.get(0,1) + 1
 
             elif val == 'A' and self.data['FTHG'][idx] = '0':
-                away_cs[away] = away_cs.get(0,1) +1
+                away_cs[away] = away_cs.get(0,1) + 1
 
             elif val == 'D' and self.data['FTAG'][idx] = '0':
-                home_cs[home] = home_cs.get(0,1) +1
-                away_cs[away] = away_cs.get(0,1) +1
+                home_cs[home] = home_cs.get(0,1) + 1
+                away_cs[away] = away_cs.get(0,1) + 1
+
+        if result == "home":
+            sorted_hcs = dict(sorted(home_cs.items(), key=lambda item:item[1],reverse=True))
+            Hcs_teams = []
+            Hcs_values = []
+            for team in range(teams):
+                Hcs_teams.append(list(sorted_hcs.keys())[team])
+                Hcs_values.append(list(sorted_hcs.values())[team])
+                
+            #colors = cmap(np.linspace(0, 1, len(Hwins_teams)))
+            fig = Figure(figsize=(12, 8))
+            ax = fig.subplots()
+            colors = ['#3498db', '#e74c3c', '#2ecc71', '#f1c40f','#9b59b6', '#34495e', '#16a085', '#e67e22','#95a5a6', '#d35400', '#c0392b', '#7f8c8d','#2c3e50', '#27ae60', '#8e44ad', '#1abc9c','#f39c12', '#bdc3c7', '#2980b9', '#e84393'][:len(Hwins_teams)]
+            ax.bar(Hcs_teams,Hcs_values,color=colors)
+            ax.set_xlabel('Teams')
+            ax.set_ylabel('Home Clean Sheets')
+            buf = BytesIO()
+            fig.savefig(buf,format="png")
+            data = base64.b64encode(buf.getbuffer()).decode("ascii")
+            plot = '<h1>Most Home in clean sheets in the Premier League</h1><br>'
+            plot += f"<img src='data:image/png;base64,{data}'/>"
+            return plot
 
 
 
@@ -184,7 +206,7 @@ f = footie('PL 23-24 Data.csv')
 def home():
     #report = f.the_best()
     #return render_template_string(report)
-    plot = f.outcomes(10,"home")
+    plot = f.clean_sheets(10,"home")
     return plot
 
 
