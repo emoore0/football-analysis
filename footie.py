@@ -161,20 +161,12 @@ class footie:
         away_cs = dict()
         for idx,val in enumerate(self.data['FTAG']):
             home = self.data['HomeTeam'][idx]
-            away = self.data['AwayTeam'][idx]
 
-            if val == '0':
-                home_cs[home] = home_cs.get(0,1) + 1
+            if val = 0:
+                home_cs[home] = home_cs.get(home,0) + 1
 
-            # elif self.data['FTHG'][idx] == '0':
-            #     away_cs[away] = away_cs.get(0,1) + 1
-
-            
-        show = f"the list of teams is {list(home_cs.keys())}"
-        return show 
         if result == "home":
             sorted_hcs = dict(sorted(home_cs.items(), key=lambda item:item[1],reverse=True))
-                   
             Hcs_teams = []
             Hcs_values = []
             for team in range(teams):
