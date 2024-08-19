@@ -175,6 +175,8 @@ class footie:
 
         if result == "home":
             sorted_hcs = dict(sorted(home_cs.items(), key=lambda item:item[1],reverse=True))
+            show = f"the list of teams is {sorted_hcs}"
+            return show        
             Hcs_teams = []
             Hcs_values = []
             for team in range(teams):
@@ -193,8 +195,7 @@ class footie:
             data = base64.b64encode(buf.getbuffer()).decode("ascii")
             plot = '<h1>Most Home in clean sheets in the Premier League</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
-            show = f"the list of teams is {sorted_hcs}"
-            return show
+            return plot
 
 
 
