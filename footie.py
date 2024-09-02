@@ -186,7 +186,12 @@ class footie:
             plot = '<h1>Most Home in clean sheets in the League</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
             return plot
+        for idx,val in enumerate(self.data['FTHG']):
+            away = self.data['AwayTeam'][idx]
 
+            if val == 0:
+                away_cs[away] = away_cs.get(away,0) + 1
+                
         if result == "away":
             sorted_acs = dict(sorted(away_cs.items(),key=lambda item:item[1],reverse=True))
             Acs_teams = []
