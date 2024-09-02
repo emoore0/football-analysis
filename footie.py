@@ -224,7 +224,7 @@ app = Flask(__name__)
 f = footie('PL 24-25 Data 020924.csv')
 @app.route('/')
 def home():
-    report = f.the_best('The Best 020924.csv')
+    report = f.the_best('The Best 23-24.csv')
     return render_template_string(report)
     #plot = f.clean_sheets(4,"home")
     #return plot
