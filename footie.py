@@ -106,8 +106,9 @@ class footie:
             return plot
 
 
-    def the_best(self,best):
-        
+    def the_best(self,best1):
+        best = best1
+
         def clean(value):
             if '+' in value:
                 return value.split('+')[0]
