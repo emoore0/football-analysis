@@ -222,12 +222,12 @@ class footie:
 app = Flask(__name__)
 
 # Create an instance of the class with the correct relative path
-f = footie('PL 23-24 Data.csv')
+f = footie('PL 24-25 Data 020924.csv')
 @app.route('/')
 def home():
     #report = f.the_best()
     #return render_template_string(report)
-    plot = f.clean_sheets(10,"home")
+    plot = f.clean_sheets(4,"home")
     return plot
 
 
