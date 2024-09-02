@@ -227,7 +227,7 @@ f = footie('PL 23-24 Data.csv')
 def home():
     #report = f.the_best()
     #return render_template_string(report)
-    plot = f.clean_sheets(10,"home")
+    plot = f.clean_sheets(10,"away")
     return plot
 
 
