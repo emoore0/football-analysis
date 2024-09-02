@@ -109,15 +109,15 @@ class footie:
     def the_best(self):
         best = pd.read_csv('The Best 23-24.csv')
 
-        def clean(value):
-            if '+' in value:
-                return value.split('+')[0]
-            elif '-' in value:
-                return value.split('-')[0]
-            return value
+        # def clean(value):
+        #     if '+' in value:
+        #         return value.split('+')[0]
+        #     elif '-' in value:
+        #         return value.split('-')[0]
+        #     return value
         
-        best['xG'] = best['xG'].apply(clean)
-        best['xA']=best['xA'].apply(clean)
+        # best['xG'] = best['xG'].apply(clean)
+        # best['xA']=best['xA'].apply(clean)
         best['xGI90'] = best['xA90'] + best['xG90']
         best['GI'] = best['A'] + best['G']
         best['G'] = pd.to_numeric(best['G'])
