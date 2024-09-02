@@ -190,7 +190,7 @@ class footie:
             buf = BytesIO()
             fig.savefig(buf,format="png")
             data = base64.b64encode(buf.getbuffer()).decode("ascii")
-            plot = '<h1>Most Home in clean sheets in the League</h1><br>'
+            plot = '<h1>Most Home clean sheets in the League</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
             return plot
             
@@ -213,7 +213,7 @@ class footie:
             buf = BytesIO()
             fig.savefig(buf,format="png")
             data = base64.b64encode(buf.getbuffer()).decode("ascii")
-            plot = '<h1>Most Away in clean sheets in the League</h1><br>'
+            plot = '<h1>Most Away clean sheets in the League</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
             return plot
 
@@ -227,7 +227,7 @@ f = footie('PL 23-24 Data.csv')
 def home():
     #report = f.the_best()
     #return render_template_string(report)
-    plot = f.clean_sheets(10,"away")
+    plot = f.clean_sheets(10,"home")
     return plot
 
 
