@@ -159,13 +159,14 @@ class footie:
     def clean_sheets(self,teams,result):
         home_cs = dict()
         away_cs = dict()
-        for idx,val in enumerate(self.data['FTAG']):
-            home = self.data['HomeTeam'][idx]
-
-            if val == 0:
-                home_cs[home] = home_cs.get(home,0) + 1
-
         if result == "home":
+            for idx,val in enumerate(self.data['FTAG']):
+                home = self.data['HomeTeam'][idx]
+
+                if val == 0:
+                    home_cs[home] = home_cs.get(home,0) + 1
+
+            
             sorted_hcs = dict(sorted(home_cs.items(), key=lambda item:item[1],reverse=True))
             Hcs_teams = []
             Hcs_values = []
@@ -186,13 +187,16 @@ class footie:
             plot = '<h1>Most Home in clean sheets in the League</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
             return plot
-        for idx,val in enumerate(self.data['FTHG']):
-            away = self.data['AwayTeam'][idx]
+            
+           
+        elif result == "away":        
+            for idx,val in enumerate(self.data['FTHG']):
+                away = self.data['AwayTeam'][idx]
 
-            if val == 0:
-                away_cs[away] = away_cs.get(away,0) + 1
-                
-        if result == "away":
+                if val == 0:
+                    away_cs[away] = away_cs.get(away,0) + 1
+
+            
             sorted_acs = dict(sorted(away_cs.items(),key=lambda item:item[1],reverse=True))
             Acs_teams = []
             Acs_values = []
