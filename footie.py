@@ -176,17 +176,34 @@ class footie:
             #colors = cmap(np.linspace(0, 1, len(Hwins_teams)))
             fig = Figure(figsize=(12, 8))
             ax = fig.subplots()
-            colors = ['#3498db', '#e74c3c', '#2ecc71', '#f1c40f','#9b59b6', '#34495e', '#16a085', '#e67e22','#95a5a6', '#d35400', '#c0392b', '#7f8c8d','#2c3e50', '#27ae60', '#8e44ad', '#1abc9c','#f39c12', '#bdc3c7', '#2980b9', '#e84393'][:len(Hcs_teams)]
-            ax.bar(Hcs_teams,Hcs_values,color=colors)
+            colours = ['#3498db', '#e74c3c', '#2ecc71', '#f1c40f','#9b59b6', '#34495e', '#16a085', '#e67e22','#95a5a6', '#d35400', '#c0392b', '#7f8c8d','#2c3e50', '#27ae60', '#8e44ad', '#1abc9c','#f39c12', '#bdc3c7', '#2980b9', '#e84393'][:len(Hcs_teams)]
+            ax.bar(Hcs_teams,Hcs_values,color=colours)
             ax.set_xlabel('Teams')
             ax.set_ylabel('Home Clean Sheets')
             buf = BytesIO()
             fig.savefig(buf,format="png")
             data = base64.b64encode(buf.getbuffer()).decode("ascii")
-            plot = '<h1>Most Home in clean sheets in the Premier League</h1><br>'
+            plot = '<h1>Most Home in clean sheets in the League</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
             return plot
 
+        if result == "away":
+            sorted_acs = dict(sorted(away_cs.items(),key=lambda item:item[1],reverse=True))
+            Acs_teams = []
+            Acs_values = []
+            for team in range(teams):
+                Acs_teams.append(list(sorted_acs.keys())[team])
+                Acs_values.append(list(sorted_acs.values())[team])
+            colours = ['#1abc9c', '#2ecc71', '#3498db', '#9b59b6', '#34495e','#16a085', '#27ae60', '#2980b9', '#8e44ad', '#2c3e50','#f1c40f', '#e67e22', '#e74c3c', '#ecf0f1', '#95a5a6','#f39c12', '#d35400', '#c0392b', '#bdc3c7', '#7f8c8d'][:len(Acs_teams)]
+            ax.bar(Acs_teams,Acs_values,color=colours)
+            ax.set_xlabel('Teams')
+            ax.set_ylabel('Away Clean Sheets')
+            buf = BytesIO()
+            fig.savefig(buf,format="png")
+            data = base64.b64encode(buf.getbuffer()).decode("ascii")
+            plot = '<h1>Most Away in clean sheets in the League</h1><br>'
+            plot += f"<img src='data:image/png;base64,{data}'/>"
+            return plot
 
 
         
@@ -198,7 +215,7 @@ f = footie('PL 23-24 Data.csv')
 def home():
     #report = f.the_best()
     #return render_template_string(report)
-    plot = f.clean_sheets(10,"home")
+    plot = f.clean_sheets(10,"away")
     return plot
 
 
