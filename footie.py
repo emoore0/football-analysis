@@ -159,14 +159,20 @@ class footie:
     def clean_sheets(self,teams,result):
         home_cs = dict()
         away_cs = dict()
-        if result == "home":
-            for idx,val in enumerate(self.data['FTAG']):
+        for idx,val in enumerate(self.data['FTAG']):
                 home = self.data['HomeTeam'][idx]
 
                 if val == 0:
                     home_cs[home] = home_cs.get(home,0) + 1
 
-            
+        for idx,val in enumerate(self.data['FTHG']):
+                away = self.data['AwayTeam'][idx]
+
+                if val == 0:
+                    away_cs[away] = away_cs.get(away,0) + 1
+
+        if result == "home":
+        
             sorted_hcs = dict(sorted(home_cs.items(), key=lambda item:item[1],reverse=True))
             Hcs_teams = []
             Hcs_values = []
@@ -190,12 +196,6 @@ class footie:
             
            
         elif result == "away":        
-            for idx,val in enumerate(self.data['FTHG']):
-                away = self.data['AwayTeam'][idx]
-
-                if val == 0:
-                    away_cs[away] = away_cs.get(away,0) + 1
-
             
             sorted_acs = dict(sorted(away_cs.items(),key=lambda item:item[1],reverse=True))
             Acs_teams = []
@@ -224,7 +224,7 @@ f = footie('PL 23-24 Data.csv')
 def home():
     #report = f.the_best()
     #return render_template_string(report)
-    plot = f.clean_sheets(10,"away")
+    plot = f.clean_sheets(10,"home")
     return plot
 
 
