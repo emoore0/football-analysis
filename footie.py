@@ -106,8 +106,8 @@ class footie:
             return plot
 
 
-    def the_best(self,best1):
-        best = best1
+    def the_best(self):
+        best = pd.read_csv('The Best 23-24.csv')
 
         def clean(value):
             if '+' in value:
@@ -224,7 +224,7 @@ app = Flask(__name__)
 f = footie('PL 24-25 Data 020924.csv')
 @app.route('/')
 def home():
-    report = f.the_best('The Best 23-24.csv')
+    report = f.the_best()
     return render_template_string(report)
     #plot = f.clean_sheets(4,"home")
     #return plot
