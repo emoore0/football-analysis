@@ -171,7 +171,6 @@ class footie:
                     away_cs[away] = away_cs.get(away,0) + 1
 
         if result == "home":
-        
             sorted_hcs = dict(sorted(home_cs.items(), key=lambda item:item[1],reverse=True))
             Hcs_teams = []
             Hcs_values = []
