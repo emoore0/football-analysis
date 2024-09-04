@@ -229,7 +229,6 @@ def home():
     plot += '<br>'
     plot += '<br>'
     plot += f.clean_sheets(8,"home")
-    
     return plot
 
 
