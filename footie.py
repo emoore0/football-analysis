@@ -94,7 +94,7 @@ class footie:
             #Hwins_values = list(sorted_hwins.values())
             fig = Figure(figsize=(16, 8))
             ax = fig.subplots()
-            colors = ['#3498db', '#e74c3c', '#2ecc71', '#f1c40f','#9b59b6', '#34495e', '#16a085', '#e67e22','#95a5a6', '#d35400', '#c0392b', '#7f8c8d','#2c3e50', '#27ae60', '#8e44ad', '#1abc9c','#f39c12', '#bdc3c7', '#2980b9', '#e84393'][:len(Hwins_teams)]
+            colors = ['#3498db', '#e74c3c', '#2ecc71', '#f1c40f','#9b59b6', '#34495e', '#16a085', '#e67e22','#95a5a6', '#d35400', '#c0392b', '#7f8c8d','#2c3e50', '#27ae60', '#8e44ad', '#1abc9c','#f39c12', '#bdc3c7', '#2980b9', '#e84393'][:len(Awins_teams)]
             ax.bar(Awins_teams,Awins_values,color=colors)
             ax.set_xlabel('Teams')
             ax.set_ylabel('Away Wins')
