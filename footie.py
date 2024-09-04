@@ -108,7 +108,7 @@ class footie:
 
     def the_best(self):
         best = pd.read_csv('The Best 24-25 020924.csv')
-
+        best.drop(best.columns[best.columns.str.contains('unnamed', case=False)], axis=1, inplace=True)
         # def clean(value):
         #     if '+' in value:
         #         return value.split('+')[0]
