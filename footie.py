@@ -62,7 +62,7 @@ class footie:
             buf = BytesIO()
             fig.savefig(buf,format="png")
             data = base64.b64encode(buf.getbuffer()).decode("ascii")
-            plot = '<h1>Most Home in wins in the Premier League</h1><br>'
+            plot = '<h1>Most Home in wins in the League</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
             return plot
             #Hwins_teams = list(sorted_hwins.keys())
@@ -101,7 +101,7 @@ class footie:
             buf = BytesIO()
             fig.savefig(buf,format="png")
             data = base64.b64encode(buf.getbuffer()).decode("ascii")
-            plot = '<h1>Most Away in wins in the Premier League</h1><br>'
+            plot = '<h1>Most Away in wins in the League</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
             return plot
 
@@ -220,13 +220,17 @@ class footie:
 app = Flask(__name__)
 
 # Create an instance of the class with the correct relative path
-f = footie('PL 24-25 Data 020924.csv')
+f = footie('NOR.csv')
 @app.route('/')
 def home():
-    report = f.the_best()
-    return render_template_string(report)
-    #plot = f.clean_sheets(4,"home")
-    #return plot
+    #report = f.the_best()
+    #return render_template_string(report)
+    plot = f.outcomes(8,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += f.clean_sheets(8,"home")
+    
+    return plot
 
 
 if __name__ == '__main__':
