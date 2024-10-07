@@ -225,7 +225,7 @@ selected_csv = 'ENG.csv'  # Default CSV file
 
 @app.route('/')
 def home():
-    return render_template('index.html', content='Please select a CSV file to view analysis.')
+    return render_template('templates/index.html', content='Please select a CSV file to view analysis.')
 
 # Route to handle CSV selection from the dropdown
 @app.route('/select_csv', methods=['POST'])
@@ -244,22 +244,22 @@ def outcomes():
         plot += '<br>' + f.outcomes(5, "away")
         return render_template('index.html', content=plot)
     else:
-        return render_template('index.html', content="Please select a CSV file first.")
+        return render_template('templates/index.html', content="Please select a CSV file first.")
 
 @app.route('/clean_sheets')
 def clean_sheets():
     if f:
         plot = f.clean_sheets(5, "home")
         plot += '<br>' + f.clean_sheets(5, "away")
-        return render_template('index.html', content=plot)
+        return render_template('templates/index.html', content=plot)
     else:
-        return render_template('index.html', content="Please select a CSV file first.")
+        return render_template('templates/index.html', content="Please select a CSV file first.")
 
 @app.route('/the_best')
 def the_best():
     if f:
         report = f.the_best()
-        return render_template_string('index.html', content=report)
+        return render_template_string('templates/index.html', content=report)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
