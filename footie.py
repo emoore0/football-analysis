@@ -221,7 +221,7 @@ app = Flask(__name__)
 
 # Default footie object, updated upon CSV selection
 f = None
-selected_csv = 'JPN.csv'  # Default CSV file
+selected_csv = 'ENG.csv'  # Default CSV file
 
 @app.route('/')
 def home():
@@ -238,7 +238,9 @@ def select_csv():
 @app.route('/outcomes')
 def outcomes():
     if f:
-        plot = f.outcomes(5, "home")
+        plot = 'The best home teams in the league'
+        plot += '<br>' + f.outcomes(5, "home")
+        plot += '<br>' + 'The best home teams in the league'
         plot += '<br>' + f.outcomes(5, "away")
         return render_template('index.html', content=plot)
     else:
@@ -257,7 +259,7 @@ def clean_sheets():
 def the_best():
     if f:
         report = f.the_best()
-        return render_template_string('index.html', content="Please select a CSV file first.")
+        return render_template_string('index.html', content=report)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
