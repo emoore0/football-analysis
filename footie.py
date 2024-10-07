@@ -4,7 +4,7 @@ from io import BytesIO
 from matplotlib.figure import Figure
 import numpy as np
 import pandas as pd
-from flask import Flask, render_template_string
+from flask import Flask, render_template_string, render_template, request, redirect, url_for
 
 
 
@@ -107,7 +107,7 @@ class footie:
 
 
     def the_best(self):
-        best = pd.read_csv('The Best 24-25 020924.csv')
+        best = pd.read_csv('The Best 24-25.csv')
         best.drop(best.columns[best.columns.str.contains('unnamed', case=False)], axis=1, inplace=True)
         # def clean(value):
         #     if '+' in value:
@@ -219,27 +219,45 @@ class footie:
         
 app = Flask(__name__)
 
-# Create an instance of the class with the correct relative path
-f = footie('JPN.csv')
+# Default footie object, updated upon CSV selection
+f = None
+selected_csv = 'JPN.csv'  # Default CSV file
+
 @app.route('/')
 def home():
-    #report = f.the_best()
-    #return render_template_string(report)
-    plot = f.outcomes(5,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += f.outcomes(5,"away")
-    plot += '<br>'
-    plot += '<br>'
-    plot += f.clean_sheets(5,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += f.clean_sheets(5,"away")
+    return render_template('index.html', content='Please select a CSV file to view analysis.')
 
-    return plot
+# Route to handle CSV selection from the dropdown
+@app.route('/select_csv', methods=['POST'])
+def select_csv():
+    global f, selected_csv
+    selected_csv = request.form['csv_file']  # Get the selected CSV file from the form
+    f = footie(selected_csv)  # Create a new footie instance with the selected CSV file
+    return redirect(url_for('home'))
 
+@app.route('/outcomes')
+def outcomes():
+    if f:
+        plot = f.outcomes(5, "home")
+        plot += '<br>' + f.outcomes(5, "away")
+        return render_template('index.html', content=plot)
+    else:
+        return render_template('index.html', content="Please select a CSV file first.")
+
+@app.route('/clean_sheets')
+def clean_sheets():
+    if f:
+        plot = f.clean_sheets(5, "home")
+        plot += '<br>' + f.clean_sheets(5, "away")
+        return render_template('index.html', content=plot)
+    else:
+        return render_template('index.html', content="Please select a CSV file first.")
+
+@app.route('/the_best')
+def the_best():
+    if f:
+        report = f.the_best()
+        return render_template_string('index.html', content="Please select a CSV file first.")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
-
-
