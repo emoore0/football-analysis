@@ -219,22 +219,22 @@
         
 # app = Flask(__name__)
 
-# # Create an instance of the class with the correct relative path
-# f = footie('ENG.csv')
-# @app.route('/')
-# def home():
-#     #report = f.the_best()
-#     #return render_template_string(report)
-#     plot = f.outcomes(5,"home")
-#     plot += '<br>'
-#     plot += '<br>'
-#     plot += f.outcomes(5,"away")
-#     plot += '<br>'
-#     plot += '<br>'
-#     plot += f.clean_sheets(5,"home")
-#     plot += '<br>'
-#     plot += '<br>'
-#     plot += f.clean_sheets(5,"away")
+# Create an instance of the class with the correct relative path
+f = footie('ENG.csv')
+@app.route('/')
+def home():
+    #report = f.the_best()
+    #return render_template_string(report)
+    plot = f.outcomes(5,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += f.outcomes(5,"away")
+    plot += '<br>'
+    plot += '<br>'
+    plot += f.clean_sheets(5,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += f.clean_sheets(5,"away")
 
 #     return plot
 
