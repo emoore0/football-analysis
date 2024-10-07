@@ -220,7 +220,7 @@ class footie:
 app = Flask(__name__)
 
 # Create an instance of the class with the correct relative path
-f = footie('JPN.csv')
+f = footie('ENG.csv')
 @app.route('/')
 def home():
     #report = f.the_best()
