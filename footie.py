@@ -227,7 +227,6 @@ def home():
     #return render_template_string(report)
     plot = f.outcomes(5,"home")
     plot += '<br>'
-    plot += '<br>'
     plot += f.outcomes(5,"away")
     plot += '<br>'
     plot += '<br>'
