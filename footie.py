@@ -446,10 +446,10 @@ f = footie('data/ENG.csv')
 def home():
     #report = f.the_best()
     #return render_template_string(report)
-    plot = f.outcomes(5,"home")
+    plot = f.outcomes(7,"home")
     plot += '<br>'
     plot += '<br>'
-    plot += f.outcomes(5,"away")
+    plot += f.outcomes(7,"away")
     plot += '<br>'
     plot += '<br>'
     plot += f.clean_sheets(5,"home")
