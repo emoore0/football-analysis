@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Analysis</title>
+</head>
+<body>
+    <h1>Football Analysis Dashboard</h1>
+
+    <!-- Dropdown for selecting CSV files -->
+    <form action="/select_csv" method="POST">
+        <label for="csv_file">Select a CSV file:</label>
+        <select name="csv_file" id="csv_file">
+            <option value="JPN.csv">JPN.csv</option>
+            <option value="USA.csv">USA.csv</option>
+            <option value="ENG.csv">ENG.csv</option>
+            <!-- Add more CSV options here -->
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Buttons for different analyses -->
+    <button onclick="window.location.href='/outcomes'">Show Outcomes</button>
+    <button onclick="window.location.href='/clean_sheets'">Show Clean Sheets</button>
+    <button onclick="window.location.href='/the_best'">Show The PL's Best Players</button>
+
+    <!-- Content is displayed here -->
+    <div id="content">
+        {{ content|safe }}
+    </div>
+</body>
+</html>
