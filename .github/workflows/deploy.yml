@@ -29,12 +29,12 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/football-app:latest
 
-    - name: Deploy to Azure VM
+    - name: Deploy to AWS EC2
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.AZURE_VM_HOST }}
-        username: azureuser
-        key: ${{ secrets.AZURE_VM_SSH_KEY }}
+        host: ${{ secrets.AWS_EC2_HOST }}
+        username: ec2-user  # Assuming you are using Amazon Linux; use 'ubuntu' for Ubuntu AMIs
+        key: ${{ secrets.AWS_EC2_SSH_KEY }}
         script: |
           sudo docker pull ${{ secrets.DOCKER_USERNAME }}/football-app:latest
           sudo docker stop football-app || true
