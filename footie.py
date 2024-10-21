@@ -450,6 +450,8 @@ j = footie('./data/SWE.csv')
 k = footie('./data/BRA.csv')
 l = footie('./data/NET.csv')
 m = footie('./data/JPN.csv')
+n = footie('./data/SCO.csv')
+o = footie('./data/ENG.csv')
 @app.route('/')
 def home():
     report = e.the_best()
