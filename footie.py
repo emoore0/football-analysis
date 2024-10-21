@@ -441,16 +441,13 @@ class footie:
 app = Flask(__name__)
 
 # Create an instance of the class with the correct relative path
-e = footie('./data/ENG.csv')
-# f = footie('./data/NOR.csv')
-# g = footie('./data/ITA.csv')
-# h = footie('./data/BRA.csv')
-# i = footie('./data/GER.csv')
+e = footie('./data/NOR.csv')
+
 @app.route('/')
 def home():
     report = e.the_best()
     #return render_template_string(report)
-    plot = '<h2>England</h2><br>'
+    plot = '<h2>Norway</h2><br>'
     plot += e.outcomes(7,"home")
     plot += '<br>'
     plot += '<br>'
@@ -463,108 +460,10 @@ def home():
     plot += e.clean_sheets(5,"away")
     plot += '<br>'
     plot += '<br>'
-    #plot += render_template_string(report)
-    # plot += '<h2>Norway</h2><br>'
-    # plot += f.outcomes(7,"home")
-    # plot += '<br>'
-    # plot += '<br>'
-    # plot += f.outcomes(7,"away")
-    # plot += '<br>'
-    # plot += '<br>'
-    # plot += f.clean_sheets(5,"home")
-    # plot += '<br>'
-    # plot += '<br>'
-    # plot += f.clean_sheets(5,"away")
-    # plot += '<br>'
-    # plot += '<br>'
-    # plot += '<h2>Italy</h2><br>'
-    # plot += g.outcomes(7,"home")
-    # plot += '<br>'
-    # plot += '<br>'
-    # plot += g.outcomes(7,"away")
-    # plot += '<br>'
-    # plot += '<br>'
-    # plot += g.clean_sheets(5,"home")
-    # plot += '<br>'
-    # plot += '<br>'
-    # plot += g.clean_sheets(5,"away")
-    # plot += '<br>'
-    # plot += '<br>'
-    # plot += '<h2>Brazil</h2><br>'
-    # plot += h.outcomes(7,"home")
-    # plot += '<br>'
-    # plot += '<br>'
-    # plot += h.outcomes(7,"away")
-    # plot += '<br>'
-    # plot += '<br>'
-    # plot += h.clean_sheets(5,"home")
-    # plot += '<br>'
-    # plot += '<br>'
-    # plot += h.clean_sheets(5,"away")
-    # plot += '<br>'
-    # plot += '<br>'
-    # plot += '<h2>Germany</h2><br>'
-    # plot += i.outcomes(7,"home")
-    # plot += '<br>'
-    # plot += '<br>'
-    # plot += i.outcomes(7,"away")
-    # plot += '<br>'
-    # plot += '<br>'
-    # plot += i.clean_sheets(5,"home")
-    # plot += '<br>'
-    # plot += '<br>'
-    # plot += i.clean_sheets(5,"away")
-    # plot += '<br>'
-    # plot += '<br>'
+   
 
     return plot
 
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
-
-
-# Default footie object, updated upon CSV selection
-# f = None
-# selected_csv = 'ENG.csv'  # Default CSV file
-
-# @app.route('/')
-# def home():
-#     return render_template('index.html', content='Please select a CSV file to view analysis.')
-
-# # Route to handle CSV selection from the dropdown
-# @app.route('/select_csv', methods=['POST'])
-# def select_csv():
-#     global f, selected_csv
-#     selected_csv = request.form['csv_file']  # Get the selected CSV file from the form
-#     f = footie(selected_csv)  # Create a new footie instance with the selected CSV file
-#     return redirect(url_for('home'))
-
-# @app.route('/outcomes')
-# def outcomes():
-#     if f:
-#         plot = 'The best home teams in the league'
-#         plot += '<br>' + f.outcomes(5, "home")
-#         plot += '<br>' + 'The best home teams in the league'
-#         plot += '<br>' + f.outcomes(5, "away")
-#         return render_template('index.html', content=plot)
-#     else:
-#         return render_template('index.html', content="Please select a CSV file first.")
-
-# @app.route('/clean_sheets')
-# def clean_sheets():
-#     if f:
-#         plot = f.clean_sheets(5, "home")
-#         plot += '<br>' + f.clean_sheets(5, "away")
-#         return render_template('index.html', content=plot)
-#     else:
-#         return render_template('index.html', content="Please select a CSV file first.")
-
-# @app.route('/the_best')
-# def the_best():
-#     if f:
-#         report = f.the_best()
-#         return render_template_string('index.html', content=report)
-
-# if __name__ == '__main__':
-#     app.run(host='0.0.0.0', port=80)
