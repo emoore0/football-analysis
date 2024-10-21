@@ -448,6 +448,8 @@ h = footie('./data/GER.csv')
 i = footie('./data/POR.csv')
 j = footie('./data/SWE.csv')
 k = footie('./data/BRA.csv')
+l = footie('./data/NET.csv')
+m = footie('./data/JPN.csv')
 @app.route('/')
 def home():
     report = e.the_best()
@@ -517,7 +519,7 @@ def home():
     plot += i.clean_sheets(5,"away")
     plot += '<br>'
     plot += '<br>'
-    plot += '<h1>Sweeden</h1><br>'
+    plot += '<h1>Sweden</h1><br>'
     plot += j.outcomes(7,"home")
     plot += '<br>'
     plot += '<br>'
@@ -543,6 +545,59 @@ def home():
     plot += k.clean_sheets(5,"away")
     plot += '<br>'
     plot += '<br>'
+    plot += '<h1>Netherlands</h1><br>'
+    plot += l.outcomes(7,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += l.outcomes(7,"away")
+    plot += '<br>'
+    plot += '<br>'
+    plot += l.clean_sheets(5,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += l.clean_sheets(5,"away")
+    plot += '<br>'
+    plot += '<br>'
+    plot += '<h1>Japan</h1><br>'
+    plot += m.outcomes(7,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += m.outcomes(7,"away")
+    plot += '<br>'
+    plot += '<br>'
+    plot += m.clean_sheets(5,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += m.clean_sheets(5,"away")
+    plot += '<br>'
+    plot += '<br>'
+    plot += '<h1>Scotland</h1><br>'
+    plot += n.outcomes(7,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += n.outcomes(7,"away")
+    plot += '<br>'
+    plot += '<br>'
+    plot += n.clean_sheets(5,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += n.clean_sheets(5,"away")
+    plot += '<br>'
+    plot += '<br>'
+    plot += '<h1>England</h1><br>'
+    plot += o.outcomes(7,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += o.outcomes(7,"away")
+    plot += '<br>'
+    plot += '<br>'
+    plot += o.clean_sheets(5,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += o.clean_sheets(5,"away")
+    plot += '<br>'
+    plot += '<br>'
+    plot += report
    
 
     return plot
