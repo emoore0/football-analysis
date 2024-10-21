@@ -450,11 +450,12 @@ j = footie('./data/SWE.csv')
 k = footie('./data/BRA.csv')
 l = footie('./data/NET.csv')
 m = footie('./data/JPN.csv')
+n = footie('./data/SCO.csv')
 o = footie('./data/ENG.csv')
 
 @app.route('/')
 def home():
-    report = o.the_best()
+    
     #return render_template_string(report)
     plot = '<h1>Norway</h1><br>'
     plot += e.outcomes(7,"home")
@@ -573,6 +574,19 @@ def home():
     plot += m.clean_sheets(5,"away")
     plot += '<br>'
     plot += '<br>'
+    plot += '<h1>Scotland</h1><br>'
+    plot += n.outcomes(7,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += n.outcomes(7,"away")
+    plot += '<br>'
+    plot += '<br>'
+    plot += n.clean_sheets(5,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += n.clean_sheets(5,"away")
+    plot += '<br>'
+    plot += '<br>'
     plot += '<h1>England</h1><br>'
     plot += o.outcomes(7,"home")
     plot += '<br>'
@@ -586,6 +600,7 @@ def home():
     plot += o.clean_sheets(5,"away")
     plot += '<br>'
     plot += '<br>'
+    report = o.the_best()
     plot += report
    
 
