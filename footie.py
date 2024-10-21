@@ -452,9 +452,10 @@ l = footie('./data/NET.csv')
 m = footie('./data/JPN.csv')
 n = footie('./data/SCO.csv')
 o = footie('./data/ENG.csv')
+
 @app.route('/')
 def home():
-    report = e.the_best()
+    report = o.the_best()
     #return render_template_string(report)
     plot = '<h1>Norway</h1><br>'
     plot += e.outcomes(7,"home")
