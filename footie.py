@@ -442,6 +442,7 @@ app = Flask(__name__)
 
 # Create an instance of the class with the correct relative path
 e = footie('./data/NOR.csv')
+f = footie('./data/ITA.csv')
 
 @app.route('/')
 def home():
@@ -458,6 +459,19 @@ def home():
     plot += '<br>'
     plot += '<br>'
     plot += e.clean_sheets(5,"away")
+    plot += '<br>'
+    plot += '<br>'
+    plot += '<h2>Italy</h2><br>'
+    plot += f.outcomes(7,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += f.outcomes(7,"away")
+    plot += '<br>'
+    plot += '<br>'
+    plot += f.clean_sheets(5,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += f.clean_sheets(5,"away")
     plot += '<br>'
     plot += '<br>'
    
