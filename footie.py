@@ -441,12 +441,31 @@ class footie:
 app = Flask(__name__)
 
 # Create an instance of the class with the correct relative path
-f = footie('./data/ENG.csv')
+e = footie('./data/ENG.csv')
+f = footie('./data/NOR.csv')
+g = footie('./data/ITA.csv')
+h = footie('./data/BRA.csv')
+i = footie('./data/GER.csv')
 @app.route('/')
 def home():
-    report = f.the_best()
+    report = e.the_best()
     #return render_template_string(report)
-    plot = f.outcomes(7,"home")
+    plot = '<h2>England</h2><br>'
+    plot += e.outcomes(7,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += e.outcomes(7,"away")
+    plot += '<br>'
+    plot += '<br>'
+    plot += e.clean_sheets(5,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += e.clean_sheets(5,"away")
+    plot += '<br>'
+    plot += '<br>'
+    #plot += render_template_string(report)
+    plot += '<h2>Norway</h2><br>'
+    plot += f.outcomes(7,"home")
     plot += '<br>'
     plot += '<br>'
     plot += f.outcomes(7,"away")
@@ -458,7 +477,45 @@ def home():
     plot += f.clean_sheets(5,"away")
     plot += '<br>'
     plot += '<br>'
-    plot += render_template_string(report)
+    plot += '<h2>Italy</h2><br>'
+    plot += g.outcomes(7,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += g.outcomes(7,"away")
+    plot += '<br>'
+    plot += '<br>'
+    plot += g.clean_sheets(5,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += g.clean_sheets(5,"away")
+    plot += '<br>'
+    plot += '<br>'
+    plot += '<h2>Brazil</h2><br>'
+    plot += h.outcomes(7,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += h.outcomes(7,"away")
+    plot += '<br>'
+    plot += '<br>'
+    plot += h.clean_sheets(5,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += h.clean_sheets(5,"away")
+    plot += '<br>'
+    plot += '<br>'
+    plot += '<h2>Germany</h2><br>'
+    plot += i.outcomes(7,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += i.outcomes(7,"away")
+    plot += '<br>'
+    plot += '<br>'
+    plot += i.clean_sheets(5,"home")
+    plot += '<br>'
+    plot += '<br>'
+    plot += i.clean_sheets(5,"away")
+    plot += '<br>'
+    plot += '<br>'
 
     return plot
 
