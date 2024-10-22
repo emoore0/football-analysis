@@ -28,6 +28,7 @@ jobs:
         context: .
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/football-app:latest
+        no-cache: true
 
     - name: Deploy to AWS EC2
       uses: appleboy/ssh-action@master
