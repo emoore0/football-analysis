@@ -19,7 +19,7 @@ class footie:
         if all(col in self.data.columns for col in ['Home', 'Away', 'Res', 'HG', 'AG']):
             self.data.rename(columns={"Home": "HomeTeam", "Away": "AwayTeam", "Res": "FTR", "HG": "FTHG", "AG": "FTAG"}, inplace=True)
 
-        if 'Season' in df.columns:
+        if 'Season' in self.data.columns:
             self.data = self.data[self.data['Season'].isin(['2024/25', '2024'])]
 
 
