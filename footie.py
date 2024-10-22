@@ -20,9 +20,8 @@ class footie:
             self.data.rename(columns={"Home": "HomeTeam", "Away": "AwayTeam", "Res": "FTR", "HG": "FTHG", "AG": "FTAG"}, inplace=True)
 
         if 'Season' in df.columns:
-            for idx, val in enumerate(self.data['Season']):
-                if val not in ['2024/25', '2024']:
-                    df.drop(idx, inplace=True)
+            self.data = df[~df['Season'].isin(['2024/25', '2024'])]
+
 
             
 
