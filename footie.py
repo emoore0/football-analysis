@@ -485,8 +485,7 @@ def home():
     # plot += '<br>'
     # report = o.the_best()
     # plot += report
-   
-
+    
     return plot
 
 
