@@ -16,10 +16,9 @@ class footie:
         self.data = df
         #print(self.data)
         
-        if self.data['Home'] and self.data['Away'] and self.data['Res'] and self.data['HG'] and self.data['AG']:
-            self.data.rename(columns={"Home": "HomeTeam", "Away": "AwayTeam","Res":"FTR","HG":"FTHG","AG":"FTAG"}, inplace=True)
-        else:
-            continue
+        if all(col in self.data.columns for col in ['Home', 'Away', 'Res', 'HG', 'AG']):
+            self.data.rename(columns={"Home": "HomeTeam", "Away": "AwayTeam", "Res": "FTR", "HG": "FTHG", "AG": "FTAG"}, inplace=True)
+
     
     def outcomes(self,teams,result):
         home_win = dict()
