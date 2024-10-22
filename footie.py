@@ -18,6 +18,8 @@ class footie:
         
         if self.data['Home'] and self.data['Away'] and self.data['Res'] and self.data['HG'] and self.data['AG']:
             self.data.rename(columns={"Home": "HomeTeam", "Away": "AwayTeam","Res":"FTR","HG":"FTHG","AG":"FTAG"}, inplace=True)
+        else:
+            continue
     
     def outcomes(self,teams,result):
         home_win = dict()
@@ -485,7 +487,7 @@ def home():
     # plot += '<br>'
     # report = o.the_best()
     # plot += report
-    
+
     return plot
 
 
