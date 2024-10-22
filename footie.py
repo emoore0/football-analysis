@@ -11,9 +11,6 @@ from flask import Flask, render_template_string
 class footie:
     data = 0
     
-    
-    
- 
     def __init__(self,file):
         df = pd.read_csv(file)
         self.data = df
