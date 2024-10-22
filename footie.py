@@ -10,7 +10,7 @@ from flask import Flask, render_template_string
 
 class footie:
     data = 0
-    teams = []
+    
     
     
  
