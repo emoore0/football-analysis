@@ -19,6 +19,13 @@ class footie:
         if all(col in self.data.columns for col in ['Home', 'Away', 'Res', 'HG', 'AG']):
             self.data.rename(columns={"Home": "HomeTeam", "Away": "AwayTeam", "Res": "FTR", "HG": "FTHG", "AG": "FTAG"}, inplace=True)
 
+        if 'Season' in df.columns:
+            for idx,val in enumerate(self.data['Season']):
+                if val != '2024/25' or val != '2024':
+                    df.drop(val)
+            
+
+
     
     def outcomes(self,teams,result):
         home_win = dict()
