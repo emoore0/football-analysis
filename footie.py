@@ -483,7 +483,7 @@ def home():
     plot += f.clean_sheets(5,"away")
     plot += '<br>'
     plot += '<br>'
-    plot += '<h2>Argentina</h2><br>'
+    plot += '<h1>Argentina</h1><br>'
     plot += g.outcomes(7,"home")
     plot += '<br>'
     plot += '<br>'
