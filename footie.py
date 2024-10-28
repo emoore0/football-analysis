@@ -248,7 +248,7 @@ class footie:
             home = self.data['HomeTeam'][idx]
             away = self.data['AwayTeam'][idx]
 
-            if self.data['Div'][idx] != 'E0':
+            if self.data['B365H'][idx] != 0:
                 teams[home] = teams.get(home,0) + 1
                 teams[away] = teams.get(away,0) + 1
 
@@ -295,7 +295,7 @@ class footie:
             plot = '<h1>Most Home Corners  in the League</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
             plot += '<br>'
-            plot += f"{team_list}"
+            #plot += f"{team_list}"
             return plot
             
         if result == "away":
