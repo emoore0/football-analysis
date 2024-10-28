@@ -266,7 +266,7 @@ class footie:
             away = self.data['AwayTeam'][idx]
 
             away_corners[away] =  away_corners.get(away,0)
-            awaycorners[away] = away_corners[away] + self.data['AC'][idx]
+            away_corners[away] = away_corners[away] + self.data['AC'][idx]
             away_corners[away] = away_corners[away]/team_list[away]
 
 
@@ -291,6 +291,7 @@ class footie:
             data = base64.b64encode(buf.getbuffer()).decode("ascii")
             plot = '<h1>Most Home Corners  in the League per game</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
+        
             return plot
             
         if result == "away":
