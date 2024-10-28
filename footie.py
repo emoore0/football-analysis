@@ -20,7 +20,6 @@ class footie:
             self.data.rename(columns={"Home": "HomeTeam", "Away": "AwayTeam", "Res": "FTR", "HG": "FTHG", "AG": "FTAG"}, inplace=True)
 
     
-    
     def outcomes(self,teams,result):
         home_win = dict()
         away_win = dict()
