@@ -107,7 +107,7 @@ class footie:
             away = self.data['AwayTeam'][idx]
             if val[0] != 0 and val[1] != 0:
                 teamz[home] = teamz.get(home,0) + 1
-                teamz[away] = teams.get(away,0) + 1
+                teamz[away] = teamz.get(away,0) + 1
 
         sorted_teams = dict(sorted(teamz.items(), key=lambda item:item[1],reverse=True))
         team_who_scored = []
