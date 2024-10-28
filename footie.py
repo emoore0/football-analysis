@@ -251,7 +251,6 @@ class footie:
             if self.data['B365H'][idx] != 0:
                 teams[home] = teams.get(home,0) + 1
                 teams[away] = teams.get(away,0) + 1
-
         return teams
 
     def corners(self,teams,result):
