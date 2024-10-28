@@ -247,9 +247,9 @@ class footie:
         for idx,val in enumerate(self.data['HomeTeam']):
             home = self.data['HomeTeam'][idx]
             away = self.data['AwayTeam'][idx]
-            if home:
+            
+            if self.data['Div'][idx] == 'E0':
                 teams[home] = teams.get(home,0) + 1
-            if away:
                 teams[away] = teams.get(away,0) + 1
 
         return teams
