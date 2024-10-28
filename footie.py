@@ -267,7 +267,7 @@ class footie:
 
             away_corners[away] =  away_corners.get(away,0)
             away_corners[away] = away_corners[away] + self.data['AC'][idx]
-            away_corners[away] = away_corners[away]/team_list[away]
+            #away_corners[away] = away_corners[away]/team_list[away]
 
 
         if result == "home":
