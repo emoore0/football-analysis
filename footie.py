@@ -249,7 +249,7 @@ class footie:
             away = self.data['AwayTeam'][idx]
             teams[home] = teams.get(home,0) + 1
             teams[away] = teams.get(away,0) + 1
-            return teams
+        return teams
 
     def corners(self,teams,result):
         team_list = self.games()
@@ -260,7 +260,7 @@ class footie:
             
             home_corners[home] =  home_corners.get(home,0)
             home_corners[home] = home_corners[home] + self.data['HC'][idx]
-            #home_corners[home] = home_corners[home]/team_list[home]
+            home_corners[home] = home_corners[home]/team_list[home]
 
         for idx,val in enumerate(self.data['AC']):
             away = self.data['AwayTeam'][idx]
@@ -289,7 +289,7 @@ class footie:
             buf = BytesIO()
             fig.savefig(buf,format="png")
             data = base64.b64encode(buf.getbuffer()).decode("ascii")
-            plot = '<h1>Most Home Corners  in the League per game</h1><br>'
+            plot = '<h1>Most Home Corners  in the League</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
             plot += '<br>'
             plot += f"{team_list}"
@@ -314,7 +314,7 @@ class footie:
             buf = BytesIO()
             fig.savefig(buf,format="png")
             data = base64.b64encode(buf.getbuffer()).decode("ascii")
-            plot = '<h1>Most Away Corners in the League per game</h1><br>'
+            plot = '<h1>Most Away Corners in the League</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
             return plot   
         
