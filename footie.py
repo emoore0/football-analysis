@@ -244,11 +244,14 @@ class footie:
             return plot
     def games(self):
         teams = dict()
-        for idx,val in enumerate(self.data['FTAG']):
+        for idx,val in enumerate(self.data['HomeTeam']):
             home = self.data['HomeTeam'][idx]
             away = self.data['AwayTeam'][idx]
-            teams[home] = teams.get(home,0) + 1
-            teams[away] = teams.get(away,0) + 1
+            if home:
+                teams[home] = teams.get(home,0) + 1
+            if away:
+                teams[away] = teams.get(away,0) + 1
+
         return teams
 
     def corners(self,teams,result):
