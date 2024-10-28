@@ -260,7 +260,7 @@ class footie:
             
             home_corners[home] =  home_corners.get(home,0)
             home_corners[home] = home_corners[home] + self.data['HC'][idx]
-            home_corners[home] = home_corners[home]/team_list[home]
+            #home_corners[home] = home_corners[home]/team_list[home]
 
         for idx,val in enumerate(self.data['AC']):
             away = self.data['AwayTeam'][idx]
