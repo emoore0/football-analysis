@@ -257,21 +257,18 @@ class footie:
         away_corners = dict()
         for idx,val in enumerate(self.data['HC']):
             home = self.data['HomeTeam'][idx]
-
-            if val == 0:
-                home_corners[home] = home_corners.get(home,0) + 1
+            
+            home_corners[home] =  home_corners.get(home,0)
+            home_corners[home] = home_corners[home] + self.data['HC'][idx]
+            home_corners[home] = home_corners[home]/team_list[home]
 
         for idx,val in enumerate(self.data['AC']):
             away = self.data['AwayTeam'][idx]
 
-            if val == 0:
-                away_corners[away] = away_corners.get(away,0) + 1
+            away_corners[away] =  away_corners.get(away,0)
+            awaycorners[away] = away_corners[away] + self.data['AC'][idx]
+            away_corners[away] = away_corners[away]/team_list[away]
 
-        for i in list(team_list.keys()):
-            home_corners[i] = home_corners[i]/team_list[i]
-
-        for i in list(team_list.keys()):
-            away_corners[i] = away_corners[i]/team_list[i]
 
         if result == "home":
             
@@ -297,7 +294,7 @@ class footie:
             return plot
             
         if result == "away":
-            
+
             sorted_acorners = dict(sorted(away_corners.items(), key=lambda item:item[1],reverse=True))
             Acorners_teams = []
             Acorners_values = []
