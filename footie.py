@@ -242,6 +242,83 @@ class footie:
             plot = '<h1>Most Away clean sheets in the League</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
             return plot
+    def games(self):
+        teams = dict()
+        for idx,val in enumerate(self.data['FTAG']):
+            home = self.data['HomeTeam'][idx]
+            away = self.data['AwayTeam'][idx]
+            teams[home] = teams.get(home,0) + 1
+            teams[away] = teams.get(away,0) + 1
+            return teams
+
+    def corners(self,teams,result):
+        team_list = self.games()
+        home_corners = dict()
+        away_corners = dict()
+        for idx,val in enumerate(self.data['HC']):
+            home = self.data['HomeTeam'][idx]
+
+            if val == 0:
+                home_corners[home] = home_corners.get(home,0) + 1
+
+        for idx,val in enumerate(self.data['AC']):
+            away = self.data['AwayTeam'][idx]
+
+            if val == 0:
+                away_corners[away] = away_corners.get(away,0) + 1
+
+        for i in list(team_list.keys()):
+            home_corners[i] = home_corners[i]/team_list[i]
+
+        for i in list(team_list.keys()):
+            away_corners[i] = away_corners[i]/team_list[i]
+
+        if result == "home":
+            
+            sorted_hcorners = dict(sorted(home_corners.items(), key=lambda item:item[1],reverse=True))
+            Hcorners_teams = []
+            Hcorners_values = []
+            for team in range(teams):
+                Hcorners_teams.append(list(sorted_hcorners.keys())[team])
+                Hcorners_values.append(list(sorted_hcorners.values())[team])
+                
+            #colors = cmap(np.linspace(0, 1, len(Hwins_teams)))
+            fig = Figure(figsize=(16, 8))
+            ax = fig.subplots()
+            colours = ['#3498db', '#e74c3c', '#2ecc71', '#f1c40f','#9b59b6', '#34495e', '#16a085', '#e67e22','#95a5a6', '#d35400', '#c0392b', '#7f8c8d','#2c3e50', '#27ae60', '#8e44ad', '#1abc9c','#f39c12', '#bdc3c7', '#2980b9', '#e84393'][:len(Hcorners_teams)]
+            ax.bar(Hcorners_teams,Hcorners_values,color=colours)
+            ax.set_xlabel('Teams')
+            ax.set_ylabel('Home Corners')
+            buf = BytesIO()
+            fig.savefig(buf,format="png")
+            data = base64.b64encode(buf.getbuffer()).decode("ascii")
+            plot = '<h1>Most Home Corners  in the League per game</h1><br>'
+            plot += f"<img src='data:image/png;base64,{data}'/>"
+            return plot
+            
+        if result == "away":
+            
+            sorted_acorners = dict(sorted(away_corners.items(), key=lambda item:item[1],reverse=True))
+            Acorners_teams = []
+            Acorners_values = []
+            for team in range(teams):
+                Acorners_teams.append(list(sorted_acorners.keys())[team])
+                Acorners_values.append(list(sorted_acorners.values())[team])
+                
+            #colors = cmap(np.linspace(0, 1, len(Hwins_teams)))
+            fig = Figure(figsize=(16, 8))
+            ax = fig.subplots()
+            colours = ['#3498db', '#e74c3c', '#2ecc71', '#f1c40f','#9b59b6', '#34495e', '#16a085', '#e67e22','#95a5a6', '#d35400', '#c0392b', '#7f8c8d','#2c3e50', '#27ae60', '#8e44ad', '#1abc9c','#f39c12', '#bdc3c7', '#2980b9', '#e84393'][:len(Acorners_teams)]
+            ax.bar(Acorners_teams,Acorners_values,color=colours)
+            ax.set_xlabel('Teams')
+            ax.set_ylabel('Away Corners')
+            buf = BytesIO()
+            fig.savefig(buf,format="png")
+            data = base64.b64encode(buf.getbuffer()).decode("ascii")
+            plot = '<h1>Most Away Corners in the League per game</h1><br>'
+            plot += f"<img src='data:image/png;base64,{data}'/>"
+            return plot   
+        
 
 
         
@@ -263,7 +340,7 @@ q = footie('./data/FRA.csv')
 
 @app.route('/')
 def home():
-    plot = o.btts(7)
+    plot = o.corners(7,"home")
     #return render_template_string(report)
     # plot = '<h1>Spain</h1><br>'
     # plot += e.outcomes(7,"home")
