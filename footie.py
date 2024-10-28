@@ -99,6 +99,40 @@ class footie:
             plot += f"<img src='data:image/png;base64,{data}'/>"
             return plot
 
+    def btts(self,teams):
+        teamz = dict()
+
+        for idx,val in enumerate(zip(self.data['FTHG'],self.data['FTAG'])):
+            home = self.data['HomeTeam'][idx]
+            away = self.data['AwayTeam'][idx]
+            if val[0] != 0 and val[1] != 0:
+                teamz[home] = teamz.get(home,0) + 1
+                teamz[away] = teams.get(away,0) + 1
+
+        sorted_teams = dict(sorted(teamz.items(), key=lambda item:item[1],reverse=True))
+        team_who_scored = []
+        teams_values = []
+        for team in range(teams):
+            team_who_scored.append(list(sorted_teams.keys())[team])
+            teams_values.append(list(sorted_teams.values())[team])
+            
+
+        fig = Figure(figsize=(16, 8))
+        ax = fig.subplots()
+        colors = ['#3498db', '#e74c3c', '#2ecc71', '#f1c40f','#9b59b6', '#34495e', '#16a085', '#e67e22','#95a5a6', '#d35400', '#c0392b', '#7f8c8d','#2c3e50', '#27ae60', '#8e44ad', '#1abc9c','#f39c12', '#bdc3c7', '#2980b9', '#e84393'][:len(Awins_teams)]
+        ax.bar(team_who_scored,teams_values,color=colors)
+        ax.set_xlabel('Teams')
+        ax.set_ylabel('Matches where both teams scored')
+        buf = BytesIO()
+        fig.savefig(buf,format="png")
+        data = base64.b64encode(buf.getbuffer()).decode("ascii")
+        plot = '<h1>Most BTTS games this season</h1><br>'
+        plot += f"<img src='data:image/png;base64,{data}'/>"
+        return plot
+
+
+
+
 
     def the_best(self):
         best = pd.read_csv('The Best 24-25 211024.csv')
@@ -229,143 +263,143 @@ q = footie('./data/FRA.csv')
 
 @app.route('/')
 def home():
-    
+    plot = o.btts(7)
     #return render_template_string(report)
-    plot = '<h1>Spain</h1><br>'
-    plot += e.outcomes(7,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += e.outcomes(7,"away")
-    plot += '<br>'
-    plot += '<br>'
-    plot += e.clean_sheets(5,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += e.clean_sheets(5,"away")
-    plot += '<br>'
-    plot += '<br>'
-    plot += '<h1>Italy</h1><br>'
-    plot += f.outcomes(7,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += f.outcomes(7,"away")
-    plot += '<br>'
-    plot += '<br>'
-    plot += f.clean_sheets(5,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += f.clean_sheets(5,"away")
-    plot += '<br>'
-    plot += '<br>'
-    plot += '<h1>Greece</h1><br>'
-    plot += g.outcomes(7,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += g.outcomes(7,"away")
-    plot += '<br>'
-    plot += '<br>'
-    plot += g.clean_sheets(5,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += g.clean_sheets(5,"away")
-    plot += '<br>'
-    plot += '<br>'
-    plot += '<h1>Germany</h1><br>'
-    plot += h.outcomes(7,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += h.outcomes(7,"away")
-    plot += '<br>'
-    plot += '<br>'
-    plot += h.clean_sheets(5,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += h.clean_sheets(5,"away")
-    plot += '<br>'
-    plot += '<br>'
-    plot += '<h1>Portugal</h1><br>'
-    plot += i.outcomes(7,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += i.outcomes(7,"away")
-    plot += '<br>'
-    plot += '<br>'
-    plot += i.clean_sheets(5,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += i.clean_sheets(5,"away")
-    plot += '<br>'
-    plot += '<br>'
+    # plot = '<h1>Spain</h1><br>'
+    # plot += e.outcomes(7,"home")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += e.outcomes(7,"away")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += e.clean_sheets(5,"home")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += e.clean_sheets(5,"away")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += '<h1>Italy</h1><br>'
+    # plot += f.outcomes(7,"home")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += f.outcomes(7,"away")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += f.clean_sheets(5,"home")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += f.clean_sheets(5,"away")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += '<h1>Greece</h1><br>'
+    # plot += g.outcomes(7,"home")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += g.outcomes(7,"away")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += g.clean_sheets(5,"home")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += g.clean_sheets(5,"away")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += '<h1>Germany</h1><br>'
+    # plot += h.outcomes(7,"home")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += h.outcomes(7,"away")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += h.clean_sheets(5,"home")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += h.clean_sheets(5,"away")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += '<h1>Portugal</h1><br>'
+    # plot += i.outcomes(7,"home")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += i.outcomes(7,"away")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += i.clean_sheets(5,"home")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += i.clean_sheets(5,"away")
+    # plot += '<br>'
+    # plot += '<br>'
     
-    plot += '<h1>Netherlands</h1><br>'
-    plot += l.outcomes(7,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += l.outcomes(7,"away")
-    plot += '<br>'
-    plot += '<br>'
-    plot += l.clean_sheets(5,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += l.clean_sheets(5,"away")
-    plot += '<br>'
-    plot += '<br>'
+    # plot += '<h1>Netherlands</h1><br>'
+    # plot += l.outcomes(7,"home")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += l.outcomes(7,"away")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += l.clean_sheets(5,"home")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += l.clean_sheets(5,"away")
+    # plot += '<br>'
+    # plot += '<br>'
     
-    plot += '<h1>Scotland</h1><br>'
-    plot += n.outcomes(7,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += n.outcomes(7,"away")
-    plot += '<br>'
-    plot += '<br>'
-    plot += n.clean_sheets(5,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += n.clean_sheets(5,"away")
-    plot += '<br>'
-    plot += '<br>'
+    # plot += '<h1>Scotland</h1><br>'
+    # plot += n.outcomes(7,"home")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += n.outcomes(7,"away")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += n.clean_sheets(5,"home")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += n.clean_sheets(5,"away")
+    # plot += '<br>'
+    # plot += '<br>'
     
-    plot += '<h1>France</h1><br>'
-    plot += q.outcomes(7,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += q.outcomes(7,"away")
-    plot += '<br>'
-    plot += '<br>'
-    plot += q.clean_sheets(5,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += q.clean_sheets(5,"away")
-    plot += '<br>'
-    plot += '<br>'
-    plot += '<h1>Championship</h1><br>'
-    plot += j.outcomes(7,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += j.outcomes(7,"away")
-    plot += '<br>'
-    plot += '<br>'
-    plot += j.clean_sheets(5,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += j.clean_sheets(5,"away")
-    plot += '<br>'
-    plot += '<br>'
-    plot += '<h1>England</h1><br>'
-    plot += o.outcomes(7,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += o.outcomes(7,"away")
-    plot += '<br>'
-    plot += '<br>'
-    plot += o.clean_sheets(5,"home")
-    plot += '<br>'
-    plot += '<br>'
-    plot += o.clean_sheets(5,"away")
-    plot += '<br>'
-    plot += '<br>'
-    report = o.the_best()
-    plot += report
+    # plot += '<h1>France</h1><br>'
+    # plot += q.outcomes(7,"home")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += q.outcomes(7,"away")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += q.clean_sheets(5,"home")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += q.clean_sheets(5,"away")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += '<h1>Championship</h1><br>'
+    # plot += j.outcomes(7,"home")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += j.outcomes(7,"away")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += j.clean_sheets(5,"home")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += j.clean_sheets(5,"away")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += '<h1>England</h1><br>'
+    # plot += o.outcomes(7,"home")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += o.outcomes(7,"away")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += o.clean_sheets(5,"home")
+    # plot += '<br>'
+    # plot += '<br>'
+    # plot += o.clean_sheets(5,"away")
+    # plot += '<br>'
+    # plot += '<br>'
+    # report = o.the_best()
+    # plot += report
 
     return plot
 
