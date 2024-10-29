@@ -360,7 +360,7 @@ q = footie('./data/FRA.csv')
 def home():
     plot = o.corners(7,"home")
     plot += '<br>'
-    plot += o.btts(7,"home")
+    plot += o.btts(7)
     #return render_template_string(report)
     # plot = '<h1>Spain</h1><br>'
     # plot += e.outcomes(7,"home")
