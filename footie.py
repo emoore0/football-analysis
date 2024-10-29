@@ -126,8 +126,8 @@ class footie:
     
 
 
-    def the_best(self):
-        best = pd.read_csv('./The Best 24-25 291024.csv')
+    def the_best(self,file):
+        best = pd.read_csv(file)
         best.drop(best.columns[best.columns.str.contains('unnamed', case=False)], axis=1, inplace=True)
 
 
@@ -487,7 +487,7 @@ def home():
     
     plot += o.btts(7)
     
-    plot += o.the_best()
+    plot += o.the_best('./The-Best.csv')
     
 
     return render_template_string(plot)
