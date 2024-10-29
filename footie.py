@@ -57,23 +57,9 @@ class footie:
             data = base64.b64encode(buf.getbuffer()).decode("ascii")
             plot = '<h1>Most Home in wins in the League</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
+            plot += '<br>'
             return plot
-            #Hwins_teams = list(sorted_hwins.keys())
-            #Hwins_values = list(sorted_hwins.values())
-
-            # plt.figure(figsize=(11,7))
-            # cmap = plt.get_cmap('plasma')  # You can change 'viridis' to other colormaps like 'plasma', 'inferno', 'magma', etc.
-            # colors = cmap(np.linspace(0, 1, len(Hwins_teams)))
-
-            # plt.bar(Hwins_teams,Hwins_values,color=colors)
-
-            # for i in range(len(Hwins_values)):
-            #     plt.text(i, Hwins_values[i] + 0.5, str(Hwins_values[i]), ha='center')
-            # plt.xticks(fontsize=6)
-            # plt.xlabel('Teams')
-            # plt.ylabel('Home Wins')
-            # plt.tight_layout()
-            # plt.show()
+            
         elif result == "away":
             sorted_awins = dict(sorted(away_win.items(), key=lambda item:item[1],reverse=True))
             Awins_teams = []
@@ -96,6 +82,7 @@ class footie:
             data = base64.b64encode(buf.getbuffer()).decode("ascii")
             plot = '<h1>Most Away in wins in the League</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
+            plot += '<br>'
             return plot
 
     def btts(self,teams):
@@ -127,6 +114,7 @@ class footie:
         data = base64.b64encode(buf.getbuffer()).decode("ascii")
         plot = '<h1>Most BTTS games this season</h1><br>'
         plot += f"<img src='data:image/png;base64,{data}'/>"
+        plot += '<br>'
         return plot
 
     def clean(value):
@@ -181,7 +169,7 @@ class footie:
         underperformer = best[((best['xG'] - best['G']) >= 2.5) & (best['GI'] > 10)]
         sorted_underperformer = underperformer.sort_values(by='GI', ascending=True)
         report += sorted_underperformer.to_html(index=False)
-
+        report += '<br>'
         return report
 
     def clean_sheets(self,teams,result):
@@ -219,6 +207,7 @@ class footie:
             data = base64.b64encode(buf.getbuffer()).decode("ascii")
             plot = '<h1>Most Home clean sheets in the League</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
+            plot += '<br>'
             return plot
             
            
@@ -242,6 +231,8 @@ class footie:
             data = base64.b64encode(buf.getbuffer()).decode("ascii")
             plot = '<h1>Most Away clean sheets in the League</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
+            plot += '<br>'
+            
             return plot
             
     def games(self,team):
@@ -288,7 +279,7 @@ class footie:
 
             away_corners[away] =  away_corners.get(away,0)
             away_corners[away] = away_corners[away] + self.data['AC'][idx]
-            #away_corners[away] = away_corners[away]/team_list[away]
+            away_corners[away] = away_corners[away]/team_list[away]
 
 
         if result == "home":
@@ -313,7 +304,6 @@ class footie:
             plot = '<h1>Most Home Corners  in the League</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
             plot += '<br>'
-            #plot += f"{team_list}"
             return plot
             
         if result == "away":
@@ -337,6 +327,7 @@ class footie:
             data = base64.b64encode(buf.getbuffer()).decode("ascii")
             plot = '<h1>Most Away Corners in the League</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
+            plot += '<br>'
             return plot   
         
 
@@ -360,145 +351,146 @@ q = footie('./data/FRA.csv')
 
 @app.route('/')
 def home():
-    plot = o.corners(7,"home")
-    plot += '<br>'
-    plot += o.btts(7)
+    
     #return render_template_string(report)
     # plot = '<h1>Spain</h1><br>'
     # plot += e.outcomes(7,"home")
-    # plot += '<br>'
-    # plot += '<br>'
+     
+   
     # plot += e.outcomes(7,"away")
-    # plot += '<br>'
-    # plot += '<br>'
+     
+    
     # plot += e.clean_sheets(5,"home")
-    # plot += '<br>'
-    # plot += '<br>'
+     
+ 
     # plot += e.clean_sheets(5,"away")
-    # plot += '<br>'
-    # plot += '<br>'
+     
+  
     # plot += '<h1>Italy</h1><br>'
     # plot += f.outcomes(7,"home")
-    # plot += '<br>'
-    # plot += '<br>'
+     
+
     # plot += f.outcomes(7,"away")
-    # plot += '<br>'
-    # plot += '<br>'
+     
+
     # plot += f.clean_sheets(5,"home")
-    # plot += '<br>'
-    # plot += '<br>'
+     
+
     # plot += f.clean_sheets(5,"away")
-    # plot += '<br>'
-    # plot += '<br>'
+     
+
     # plot += '<h1>Greece</h1><br>'
     # plot += g.outcomes(7,"home")
-    # plot += '<br>'
-    # plot += '<br>'
+     
+
     # plot += g.outcomes(7,"away")
-    # plot += '<br>'
-    # plot += '<br>'
+     
+
     # plot += g.clean_sheets(5,"home")
-    # plot += '<br>'
-    # plot += '<br>'
+    
+
     # plot += g.clean_sheets(5,"away")
-    # plot += '<br>'
-    # plot += '<br>'
+    
+
     # plot += '<h1>Germany</h1><br>'
     # plot += h.outcomes(7,"home")
-    # plot += '<br>'
-    # plot += '<br>'
+    
+
     # plot += h.outcomes(7,"away")
-    # plot += '<br>'
-    # plot += '<br>'
+ 
+
     # plot += h.clean_sheets(5,"home")
-    # plot += '<br>'
-    # plot += '<br>'
+    
+    
     # plot += h.clean_sheets(5,"away")
-    # plot += '<br>'
-    # plot += '<br>'
+   
+
     # plot += '<h1>Portugal</h1><br>'
     # plot += i.outcomes(7,"home")
-    # plot += '<br>'
-    # plot += '<br>'
+    
+
     # plot += i.outcomes(7,"away")
-    # plot += '<br>'
-    # plot += '<br>'
+ 
+
     # plot += i.clean_sheets(5,"home")
-    # plot += '<br>'
-    # plot += '<br>'
+ 
+
     # plot += i.clean_sheets(5,"away")
-    # plot += '<br>'
-    # plot += '<br>'
+    
+ 
     
     # plot += '<h1>Netherlands</h1><br>'
     # plot += l.outcomes(7,"home")
-    # plot += '<br>'
-    # plot += '<br>'
+
+   
     # plot += l.outcomes(7,"away")
-    # plot += '<br>'
-    # plot += '<br>'
+    
+    
     # plot += l.clean_sheets(5,"home")
-    # plot += '<br>'
-    # plot += '<br>'
+
+    
     # plot += l.clean_sheets(5,"away")
-    # plot += '<br>'
-    # plot += '<br>'
+   
+    
     
     # plot += '<h1>Scotland</h1><br>'
     # plot += n.outcomes(7,"home")
-    # plot += '<br>'
-    # plot += '<br>'
+  
+  
     # plot += n.outcomes(7,"away")
-    # plot += '<br>'
-    # plot += '<br>'
+
+    
     # plot += n.clean_sheets(5,"home")
-    # plot += '<br>'
-    # plot += '<br>'
+ 
+    
     # plot += n.clean_sheets(5,"away")
-    # plot += '<br>'
-    # plot += '<br>'
+    
+  
     
     # plot += '<h1>France</h1><br>'
     # plot += q.outcomes(7,"home")
-    # plot += '<br>'
-    # plot += '<br>'
+    
+    
     # plot += q.outcomes(7,"away")
-    # plot += '<br>'
-    # plot += '<br>'
+
+    
     # plot += q.clean_sheets(5,"home")
-    # plot += '<br>'
-    # plot += '<br>'
+
+   
     # plot += q.clean_sheets(5,"away")
-    # plot += '<br>'
-    # plot += '<br>'
+   
+    
     # plot += '<h1>Championship</h1><br>'
     # plot += j.outcomes(7,"home")
-    # plot += '<br>'
-    # plot += '<br>'
+ 
+    
     # plot += j.outcomes(7,"away")
-    # plot += '<br>'
-    # plot += '<br>'
+  
+    
     # plot += j.clean_sheets(5,"home")
-    # plot += '<br>'
-    # plot += '<br>'
+  
+    
     # plot += j.clean_sheets(5,"away")
-    # plot += '<br>'
-    # plot += '<br>'
-    # plot += '<h1>England</h1><br>'
-    # plot += o.outcomes(7,"home")
-    # plot += '<br>'
-    # plot += '<br>'
-    # plot += o.outcomes(7,"away")
-    # plot += '<br>'
-    # plot += '<br>'
-    # plot += o.clean_sheets(5,"home")
-    # plot += '<br>'
-    # plot += '<br>'
-    # plot += o.clean_sheets(5,"away")
-    # plot += '<br>'
-    # plot += '<br>'
-    # report = o.the_best()
-    # plot += report
+
+   
+    plot += '<h1>England</h1><br>'
+    plot += o.outcomes(7,"home")
+    plot += '<br>'
+   
+    plot += o.outcomes(7,"away")
+    plot += '<br>'
+    
+    plot += o.clean_sheets(5,"home")
+    plot += '<br>'
+
+    plot += o.clean_sheets(5,"away")
+    plot += '<br>'
+    plot = o.corners(7,"home")
+    plot += '<br>'
+    plot += o.btts(7)
+    plot += '<br>'
+    report = o.the_best()
+    plot += report
 
     return plot
 
