@@ -4,10 +4,10 @@
 
 ### The tool is a Flask application developed in Python that ingests a variety of .csv files. The .csv files are used to create a number of graphics in matplotlib detailing in order the best in a certain catergory. These catergories include: 
 
- -Home/Away outcomes 
- -Both team to score clean sheets
- -Corners
- -League player specific stats
+ - Home/Away outcomes 
+ - Both team to score clean sheets
+ - Corners
+ - League player specific stats
 
  The python scipt is automatically deployed through a Docker container built using a CI/CD pipeline using Github Actions that is ultimately hosted on an Azure or AWS VM. 
 
