@@ -473,7 +473,7 @@ def home():
     # plot += j.clean_sheets(5,"away")
 
    
-    plot += '<h1>England</h1><br>'
+    plot = '<h1>England</h1><br>'
     plot += o.outcomes(7,"home")
    
    
