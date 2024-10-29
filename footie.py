@@ -483,7 +483,7 @@ def home():
 
     plot += o.clean_sheets(5,"away")
     
-    plot = o.corners(7,"home")
+    plot += o.corners(7,"home")
     
     plot += o.btts(7)
     
