@@ -241,6 +241,7 @@ class footie:
             plot = '<h1>Most Away clean sheets in the League</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
             return plot
+            
     def games(self,team):
         teams = dict()
         hteams = dict()
@@ -352,6 +353,8 @@ q = footie('./data/FRA.csv')
 @app.route('/')
 def home():
     plot = o.corners(7,"home")
+    plot += '<br>'
+    plot += o.btts(7,"home")
     #return render_template_string(report)
     # plot = '<h1>Spain</h1><br>'
     # plot += e.outcomes(7,"home")
