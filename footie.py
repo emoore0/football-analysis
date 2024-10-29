@@ -241,19 +241,30 @@ class footie:
             plot = '<h1>Most Away clean sheets in the League</h1><br>'
             plot += f"<img src='data:image/png;base64,{data}'/>"
             return plot
-    def games(self):
+    def games(self,team):
         teams = dict()
+        hteams = dict()
+        ateams = dict()
         for idx,val in enumerate(self.data['HomeTeam']):
             home = self.data['HomeTeam'][idx]
             away = self.data['AwayTeam'][idx]
 
-            if self.data['B365H'][idx] != 0:
+            if team = "home":
+                hteams[home] = hteams.get(home,0) + 1
+            return hteams
+
+            elif team = "away":
+                ateams[away] = ateams.get(away,0) + 1
+            return ateams
+                
+            else:
                 teams[home] = teams.get(home,0) + 1
                 teams[away] = teams.get(away,0) + 1
-        return teams
+            return teams
+            
 
     def corners(self,teams,result):
-        team_list = self.games()
+        team_list = self.games("home")
         home_corners = dict()
         away_corners = dict()
         for idx,val in enumerate(self.data['HC']):
