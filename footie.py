@@ -250,11 +250,11 @@ class footie:
             home = self.data['HomeTeam'][idx]
             away = self.data['AwayTeam'][idx]
 
-            if team = "home":
+            if team == "home":
                 hteams[home] = hteams.get(home,0) + 1
             return hteams
 
-            elif team = "away":
+            elif team == "away":
                 ateams[away] = ateams.get(away,0) + 1
             return ateams
                 
