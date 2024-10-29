@@ -475,24 +475,24 @@ def home():
    
     plot += '<h1>England</h1><br>'
     plot += o.outcomes(7,"home")
-    plot += '<br>'
+   
    
     plot += o.outcomes(7,"away")
-    plot += '<br>'
+   
     
     plot += o.clean_sheets(5,"home")
-    plot += '<br>'
+    
 
     plot += o.clean_sheets(5,"away")
-    plot += '<br>'
+    
     plot = o.corners(7,"home")
-    plot += '<br>'
+    
     plot += o.btts(7)
-    plot += '<br>'
-    report = o.the_best()
-    plot += report
+    
+    plot += o.the_best()
+    
 
-    return plot
+    return render_template_string(plot)
 
 
 if __name__ == '__main__':
