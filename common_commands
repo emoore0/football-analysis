@@ -1,0 +1,10 @@
+sudo service docker start
+sudo docker ps -a
+sudo docker logs ...
+sudo docker system prune -f
+git status
+git add .
+git commit -m "message"
+git commit -am "message"
+git push origin branch
+git pull origin branch
