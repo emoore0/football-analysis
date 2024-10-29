@@ -252,15 +252,21 @@ class footie:
 
             if team == "home":
                 hteams[home] = hteams.get(home,0) + 1
-            return hteams
+            
 
             elif team == "away":
                 ateams[away] = ateams.get(away,0) + 1
-            return ateams
+            
                 
             else:
                 teams[home] = teams.get(home,0) + 1
                 teams[away] = teams.get(away,0) + 1
+                
+        if team == "home":
+            return hteams
+        elif team == "away":
+            return ateams
+        else:
             return teams
             
 
