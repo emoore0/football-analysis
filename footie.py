@@ -129,22 +129,24 @@ class footie:
         plot += f"<img src='data:image/png;base64,{data}'/>"
         return plot
 
-
+    def clean(value):
+        if '+' in value:
+            return value.split('+')[0]
+        elif '-' in value:
+            return value.split('-')[0]
+        return value
+        
+        
 
 
 
     def the_best(self):
-        best = pd.read_csv('The Best 24-25 211024.csv')
+        best = pd.read_csv('The Best 24-25 291024.csv')
         best.drop(best.columns[best.columns.str.contains('unnamed', case=False)], axis=1, inplace=True)
-        # def clean(value):
-        #     if '+' in value:
-        #         return value.split('+')[0]
-        #     elif '-' in value:
-        #         return value.split('-')[0]
-        #     return value
-        
-        # best['xG'] = best['xG'].apply(clean)
-        # best['xA']=best['xA'].apply(clean)
+
+
+        best['xG'] = best['xG'].apply(self.clean)
+        best['xA']=best['xA'].apply(self.clean)
         best['xGI90'] = best['xA90'] + best['xG90']
         best['GI'] = best['A'] + best['G']
         best['G'] = pd.to_numeric(best['G'])
