@@ -258,10 +258,10 @@ class footie:
                 ateams[away] = ateams.get(away,0) + 1
             return ateams
                 
-            # else:
-            #     teams[home] = teams.get(home,0) + 1
-            #     teams[away] = teams.get(away,0) + 1
-            # return teams
+            else:
+                teams[home] = teams.get(home,0) + 1
+                teams[away] = teams.get(away,0) + 1
+            return teams
             
 
     def corners(self,teams,result):
