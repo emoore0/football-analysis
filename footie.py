@@ -117,7 +117,7 @@ class footie:
         plot += '<br>'
         return plot
 
-    def clean(value):
+    def clean(self,value):
         if '+' in value:
             return value.split('+')[0]
         elif '-' in value:
