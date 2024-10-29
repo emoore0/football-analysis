@@ -129,7 +129,7 @@ class footie:
 
 
     def the_best(self):
-        best = pd.read_csv('The Best 24-25 291024.csv')
+        best = pd.read_csv('./The Best 24-25 291024.csv')
         best.drop(best.columns[best.columns.str.contains('unnamed', case=False)], axis=1, inplace=True)
 
 
