@@ -123,9 +123,7 @@ class footie:
         elif '-' in value:
             return value.split('-')[0]
         return value
-        
-        
-
+    
 
 
     def the_best(self):
