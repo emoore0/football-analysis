@@ -2,18 +2,31 @@
 
 ## Overview
 
-When viewing league table results and player stats through usual means, it can be difficult to make future predictions based on these alone as they don't tell the full story. This tool was designed to help you make more informed decisions when it comes to betting and also beating your mates in FPL.
+When viewing league table results and player stats through usual means, it can be difficult to make future predictions based on these alone as they don't tell the full story. The Footie Analysis Tool is a data-driven app  designed to help you make more informed betting decisions and also beating your mates in FPL.
 
-The tool is a Flask application developed in Python that ingests a variety of `.csv` files. The `.csv` files are used to create a number of graphics in matplotlib, detailing the best in a specific category. These categories include:
+The tool is a Flask application developed in Python that ingests a variety of `.csv` files. The `.csv` files are used to create a number of graphics in matplotlib, detailing the best in a specific category. 
 
-- Home/Away outcomes
-- Both teams to score / clean sheets
-- Corners
+## Features
+- Home and Away outcome analysis
+- Both teams to score and clean sheet tracking
+- Corner statistics per game
 - League player-specific stats
+- Easy visualization of results through graphs
+
 
 The Python script is automatically deployed through a Docker container built using a CI/CD pipeline with GitHub Actions and hosted on an Azure or AWS VM.
 
-Some challenges I faced when designing this include managing Docker caching and deployment consistency, ensuring the EC2 instance had internet access, and deploying the application with GitHub Actions for continuous delivery. Through perseverance, these challenges became manageable. In the future, more granular per-game statistics will be added, including shots, shots on target, free kicks conceded, half-time results, and player-specific stats for leagues beyond the Premier League.
+## Challenges Faced
+- **Docker Caching**: Addressed Docker caching issues that caused outdated code to persist during deployment by using `docker system prune -f`.
+- **Network Configuration**: Ensured the EC2 instance had internet access by configuring the appropriate security groups and route tables.
+- **CI/CD Automation**: Established a continuous deployment workflow with GitHub Actions, ensuring consistent updates to the VM whenever new code is pushed.
+
+
+## Future Enhancements
+- Add detailed per-game statistics, including shots, shots on target, and half-time results.
+- Expand player-specific stats to include additional leagues beyond the Premier League.
+- Implement more granular analysis for better prediction accuracy.
+
 
 ## Installation Guide (AWS EC2 Instance)
 
@@ -65,12 +78,14 @@ To use the tool, a number of technologies need to be installed on a VM. This pro
 7. **Log In to Docker and Build the Image**
    - Use the command `docker login` and enter your Docker email and password.
    - Build an image with the command:
+
      ```
      docker build -t your-username/football-app:latest .
      ```
 
 8. **Check Docker Logs and Verify Deployment**
    - Use `sudo docker ps -a` to get the container ID, then view logs with:
+
      ```
      sudo docker logs <first 3 letters of container id>
      ```
@@ -84,6 +99,11 @@ To use the tool, a number of technologies need to be installed on a VM. This pro
 
 10. **Troubleshoot Docker Caching**
     - On a `t2.micro` VM, there may be issues with Docker caching and deployment consistency. If needed, free up space with:
+
       ```
       sudo docker system prune -f
       ```
+
+## Usage
+- Once deployed, access the application at `http://<EC2_IP_ADDRESS>`.
+- Use the interactive visualizations to explore team and player statistics, or check out specific categories like corners, clean sheets, and scoring stats.
