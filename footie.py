@@ -44,7 +44,7 @@ class footie:
             for team in range(teams):
                 Hwins_teams.append(list(sorted_hwins.keys())[team])
                 Hwins_values.append(list(sorted_hwins.values())[team])
-                
+
             #colors = cmap(np.linspace(0, 1, len(Hwins_teams)))
             fig = Figure(figsize=(16, 8))
             ax = fig.subplots()
@@ -84,6 +84,7 @@ class footie:
             plot += f"<img src='data:image/png;base64,{data}'/>"
             plot += '<br>'
             return plot
+
 
     def btts(self,teams):
         teamz = dict()
@@ -133,6 +134,7 @@ class footie:
 
         best['xG'] = best['xG'].apply(self.clean)
         best['xA']=best['xA'].apply(self.clean)
+
         best['xGI90'] = best['xA90'] + best['xG90']
         best['GI'] = best['A'] + best['G']
         best['G'] = pd.to_numeric(best['G'])
@@ -349,6 +351,7 @@ q = footie('./data/FRA.csv')
 
 @app.route('/')
 def home():
+
     
     #return render_template_string(report)
     # plot = '<h1>Spain</h1><br>'
@@ -425,6 +428,7 @@ def home():
     
     
     # plot += l.clean_sheets(5,"home")
+
 
     
     # plot += l.clean_sheets(5,"away")

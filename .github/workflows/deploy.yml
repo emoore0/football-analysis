@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - new_feature
+      - aws
 
 jobs:
   build:
