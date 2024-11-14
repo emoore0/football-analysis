@@ -476,7 +476,7 @@ def home():
 
    
     plot = '<h1>England</h1><br>'
-    
+
     plot += o.outcomes(7,"home")
    
    
@@ -492,7 +492,7 @@ def home():
     
     plot += o.btts(7)
     
-    plot += o.the_best('./the-Best.csv')
+    plot += o.the_best('./the-best.csv')
     
 
     return render_template_string(plot)
