@@ -491,7 +491,7 @@ def home():
     
     plot += o.btts(7)
     
-    plot += o.the_best('./The-Best.csv')
+    plot += o.the_best('./the-Best.csv')
     
 
     return render_template_string(plot)
