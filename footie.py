@@ -351,7 +351,8 @@ l = footie('./data/NET.csv')
 n = footie('./data/SCO.csv')
 o = footie('./data/ENG.csv')
 p = footie('./data/IRL.csv')
-q = footie('./data/FRA.csv')
+q = footie('./data/SWE.csv')
+r = footie('./data/SWZ.csv')
 
 @app.route('/')
 def home():
@@ -470,7 +471,7 @@ def home():
     
   
     
-    plot += '<h1>France</h1><br>'
+    plot += '<h1>Sweeden</h1><br>'
     # plot += q.outcomes(7,"home")
     plot += q.btts(5)
     
@@ -497,7 +498,10 @@ def home():
     # plot += j.clean_sheets(5,"away")
     plot += '<h1>Ireland</h1><br>'
     plot += p.btts(5)
-   
+    
+    plot += '<h1>Switzerland</h1><br>'
+    plot += r.btts(5)
+
     plot += '<h1>England</h1><br>'
 
     # plot += o.outcomes(7,"home")
