@@ -1,0 +1,51 @@
+﻿No,Player,Team,Apps,Min,G,A,xG,xA,xG90,NPxG90,xA90
+1,Erling Haaland,Manchester City,11,990,12,0,12.19+0.19,0.81+0.81,1.11,1.04,0.07
+2,Mohamed Salah,Liverpool,11,970,8,6,6.82-1.18,4.12-1.88,0.63,0.49,0.38
+3,Chris Wood,Nottingham Forest,11,925,8,0,5.41-2.59,0.97+0.97,0.53,0.45,0.09
+4,Bryan Mbeumo,Brentford,11,989,8,1,3.88-4.12,2.67+1.67,0.35,0.21,0.24
+5,Cole Palmer,Chelsea,11,966,7,5,4.46-2.54,5.69+0.69,0.42,0.34,0.53
+6,Danny Welbeck,Brighton,11,955,6,2,5.47-0.53,0.65-1.35,0.52,0.52,0.06
+7,Yoane Wissa,Brentford,8,568,6,1,4.77-1.23,0.36-0.64,0.76,0.76,0.06
+8,Liam Delap,Ipswich,11,804,6,1,3.78-2.22,0.88-0.12,0.42,0.42,0.1
+9,Nicolas Jackson,Chelsea,11,910,6,3,6.45+0.45,1.40-1.60,0.64,0.64,0.14
+10,Matheus Cunha,Wolverhampton Wanderers,11,898,5,2,2.67-2.33,3.44+1.44,0.27,0.27,0.34
+11,Ollie Watkins,Aston Villa,11,879,5,2,7.32+2.32,1.44-0.56,0.75,0.75,0.15
+12,Luis Díaz,Liverpool,11,661,5,2,3.58-1.42,2,0.49,0.49,0.27
+13,Jamie Vardy,Leicester,10,858,4,1,3.33-0.67,0.90-0.10,0.35,0.27,0.09
+14,Dominic Solanke,Tottenham,9,802,4,1,6.26+2.26,0.61-0.39,0.7,0.7,0.07
+15,Raúl Jiménez,Fulham,11,671,4,2,5.33+1.33,2.87+0.87,0.72,0.61,0.38
+16,Kai Havertz,Arsenal,11,990,4,1,5.93+1.93,1.15+0.15,0.54,0.54,0.1
+17,Alexander Isak,Newcastle United,9,768,4,2,4.73+0.73,1.32-0.68,0.55,0.55,0.15
+18,Harvey Barnes,Newcastle United,11,497,4,1,2.04-1.96,1.73+0.73,0.37,0.37,0.31
+19,Brennan Johnson,Tottenham,11,882,4,0,5.29+1.29,0.94+0.94,0.54,0.54,0.1
+20,Jørgen Strand Larsen,Wolverhampton Wanderers,11,925,4,1,2.55-1.45,1.32+0.32,0.25,0.25,0.13
+21,Noni Madueke,Chelsea,10,794,4,0,3.89-0.11,0.86+0.86,0.44,0.44,0.1
+22,Antoine Semenyo,Bournemouth,11,973,4,1,5.21+1.21,2.58+1.58,0.48,0.48,0.24
+23,Jhon Durán,Aston Villa,11,235,4,0,2.74-1.26,0.06+0.06,1.05,1.05,0.02
+24,Evanilson,Bournemouth,10,728,4,0,4.38+0.38,0.75+0.75,0.54,0.45,0.09
+25,Son Heung-Min,Tottenham,8,668,3,3,1.40-1.60,3.35+0.35,0.19,0.19,0.45
+26,Jarrod Bowen,West Ham,11,974,3,2,2.47-0.53,3.78+1.78,0.23,0.16,0.35
+27,Mateo Kovacic,Manchester City,11,894,3,0,0.88-2.12,1.56+1.56,0.09,0.09,0.16
+28,Harry Wilson,Fulham,7,56,3,0,0.79-2.21,0,1.27,1.27,0
+29,Jean-Philippe Mateta,Crystal Palace,11,757,3,0,4.18+1.18,0.64+0.64,0.5,0.41,0.08
+30,Rayan Ait Nouri,Wolverhampton Wanderers,11,942,3,2,1.98-1.02,1.05-0.95,0.19,0.19,0.1
+31,Dwight McNeil,Everton,10,891,3,3,0.90-2.10,3.41+0.41,0.09,0.09,0.34
+32,James Maddison,Tottenham,11,715,3,3,2.51-0.49,2.69-0.31,0.32,0.32,0.34
+33,Emile Smith-Rowe,Fulham,11,823,3,2,2.67-0.33,1.33-0.67,0.29,0.29,0.15
+34,Bukayo Saka,Arsenal,10,848,3,7,3.17+0.17,6.51-0.49,0.34,0.34,0.69
+35,Gabriel Martinelli,Arsenal,11,699,3,2,3.07+0.07,2.07+0.07,0.4,0.4,0.27
+36,João Pedro,Brighton,5,303,3,1,1.61-1.39,1.08+0.08,0.48,0.48,0.32
+37,Josko Gvardiol,Manchester City,11,939,3,0,1.03-1.97,0.83+0.83,0.1,0.1,0.08
+38,Alejandro Garnacho,Manchester United,11,710,3,1,4.11+1.11,0.97-0.03,0.52,0.52,0.12
+39,Facundo Buonanotte,Leicester,10,739,3,2,2.59-0.41,2.45+0.45,0.32,0.32,0.3
+40,Morgan Rogers,Aston Villa,11,916,3,2,3.04+0.04,2.83+0.83,0.3,0.3,0.28
+41,Sammie Szmodics,Ipswich,11,561,3,0,3.48+0.48,0.11+0.11,0.56,0.56,0.02
+42,Joelinton,Newcastle United,11,933,2,0,1.96-0.04,0.66+0.66,0.19,0.19,0.06
+43,Alex Iwobi,Fulham,11,954,2,2,1.64-0.36,3.90+1.90,0.15,0.15,0.37
+44,John Stones,Manchester City,6,229,2,0,0.67-1.33,0,0.26,0.26,0
+45,Jordan Ayew,"Crystal Palace, Leicester",11,508,2,0,2.43+0.43,0.11+0.11,0.43,0.43,0.02
+46,Bruno Fernandes,Manchester United,11,931,2,3,4.41+2.41,3.15+0.15,0.43,0.35,0.3
+47,Michael Keane,Everton,9,810,2,0,0.79-1.21,0.12+0.12,0.09,0.09,0.01
+48,Dominic Calvert-Lewin,Everton,11,917,2,1,4.28+2.28,0.58-0.42,0.42,0.42,0.06
+49,Yves Bissouma,Tottenham,8,402,2,0,0.15-1.85,0.15+0.15,0.03,0.03,0.03
+50,Gabriel,Arsenal,11,958,2,0,2.53+0.53,0.44+0.44,0.24,0.24,0.04
