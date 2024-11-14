@@ -336,6 +336,10 @@ class footie:
 app = Flask(__name__)
 
 # Create an instance of the class with the correct relative path
+a = footie('./data/ARG.csv')
+b = footie('./data/BRA.csv')
+c = footie('./data/DNK.csv')
+d = footie('./data/FRA.csv')
 e = footie('./data/SPA.csv')
 f = footie('./data/ITA.csv')
 g = footie('./data/GRE.csv')
@@ -346,16 +350,28 @@ k = footie('./data/BRA.csv')
 l = footie('./data/NET.csv')
 n = footie('./data/SCO.csv')
 o = footie('./data/ENG.csv')
-
+p = footie('./data/IRL.csv')
 q = footie('./data/FRA.csv')
 
 @app.route('/')
 def home():
+    plot = '<h1>Argentina</h1><br>'
+    plot += a.btts(5)
+    
+    plot += '<h1>Brazil</h1><br>'
+    plot += b.btts(5)
+
+    plot += '<h1>Denmark</h1><br>'
+    plot += c.btts(5)
+
+    plot += '<h1>France</h1><br>'
+    plot += d.btts(5)
 
     
     #return render_template_string(report)
-    # plot = '<h1>Spain</h1><br>'
+    plot += '<h1>Spain</h1><br>'
     # plot += e.outcomes(7,"home")
+    plot += e.btts(5)
      
    
     # plot += e.outcomes(7,"away")
@@ -367,7 +383,8 @@ def home():
     # plot += e.clean_sheets(5,"away")
      
   
-    # plot += '<h1>Italy</h1><br>'
+    plot += '<h1>Italy</h1><br>'
+    plot += f.btts(5)
     # plot += f.outcomes(7,"home")
      
 
@@ -380,9 +397,9 @@ def home():
     # plot += f.clean_sheets(5,"away")
      
 
-    # plot += '<h1>Greece</h1><br>'
+    plot += '<h1>Greece</h1><br>'
     # plot += g.outcomes(7,"home")
-     
+    plot += g.btts(5) 
 
     # plot += g.outcomes(7,"away")
      
@@ -393,8 +410,9 @@ def home():
     # plot += g.clean_sheets(5,"away")
     
 
-    # plot += '<h1>Germany</h1><br>'
+    plot += '<h1>Germany</h1><br>'
     # plot += h.outcomes(7,"home")
+    plot += h.btts(5)
     
 
     # plot += h.outcomes(7,"away")
@@ -406,8 +424,9 @@ def home():
     # plot += h.clean_sheets(5,"away")
    
 
-    # plot += '<h1>Portugal</h1><br>'
+    plot += '<h1>Portugal</h1><br>'
     # plot += i.outcomes(7,"home")
+    plot += i.btts(5)
     
 
     # plot += i.outcomes(7,"away")
@@ -420,8 +439,9 @@ def home():
     
  
     
-    # plot += '<h1>Netherlands</h1><br>'
+    plot += '<h1>Netherlands</h1><br>'
     # plot += l.outcomes(7,"home")
+    plot += i.btts(5)
 
    
     # plot += l.outcomes(7,"away")
@@ -435,8 +455,9 @@ def home():
    
     
     
-    # plot += '<h1>Scotland</h1><br>'
+    plot += '<h1>Scotland</h1><br>'
     # plot += n.outcomes(7,"home")
+    plot += n.btts(5)
   
   
     # plot += n.outcomes(7,"away")
@@ -449,9 +470,9 @@ def home():
     
   
     
-    # plot += '<h1>France</h1><br>'
+    plot += '<h1>France</h1><br>'
     # plot += q.outcomes(7,"home")
-    
+    plot += q.btts(5)
     
     # plot += q.outcomes(7,"away")
 
@@ -462,8 +483,9 @@ def home():
     # plot += q.clean_sheets(5,"away")
    
     
-    # plot += '<h1>Championship</h1><br>'
+    plot += '<h1>Championship</h1><br>'
     # plot += j.outcomes(7,"home")
+    plot += j.btts(5)
  
     
     # plot += j.outcomes(7,"away")
@@ -473,26 +495,27 @@ def home():
   
     
     # plot += j.clean_sheets(5,"away")
+    plot += '<h1>Ireland</h1><br>'
+    plot += p.btts(5)
+   
+    plot += '<h1>England</h1><br>'
 
-   
-    plot = '<h1>England</h1><br>'
-
-    plot += o.outcomes(7,"home")
+    # plot += o.outcomes(7,"home")
    
    
-    plot += o.outcomes(7,"away")
+    # plot += o.outcomes(7,"away")
    
     
-    plot += o.clean_sheets(5,"home")
+    # plot += o.clean_sheets(5,"home")
     
 
     plot += o.clean_sheets(5,"away")
     
-    plot += o.corners(7,"home")
+    # plot += o.corners(7,"home")
     
-    plot += o.btts(7)
+    # plot += o.btts(5)
     
-    plot += o.the_best('./the-best.csv')
+    # plot += o.the_best('./the-best.csv')
     
 
     return render_template_string(plot)
