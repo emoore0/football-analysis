@@ -476,6 +476,7 @@ def home():
 
    
     plot = '<h1>England</h1><br>'
+    
     plot += o.outcomes(7,"home")
    
    
