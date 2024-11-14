@@ -441,7 +441,7 @@ def home():
     
     plot += '<h1>Netherlands</h1><br>'
     # plot += l.outcomes(7,"home")
-    plot += i.btts(5)
+    plot += l.btts(5)
 
    
     # plot += l.outcomes(7,"away")
