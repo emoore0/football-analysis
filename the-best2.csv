@@ -1,41 +1,51 @@
 ﻿№,Player,Team,Apps,Min,G,A,xG,xA,xG90,NPxG90,xA90
-4,Matheus Cunha,Wolverhampton Wanderers,7,630,5,2,1.41-3.59,1.72-0.28,0.2,0.2,0.25
-5,Cole Palmer,Chelsea,7,624,5,1,4.93-0.07,2.24+1.24,0.71,0.49,0.32
-6,Ismaila Sarr,Crystal Palace,7,620,4,2,3.28-0.72,2.34+0.34,0.48,0.48,0.34
-9,Alex Iwobi,Fulham,7,629,3,1,1.67-1.33,0.35-0.65,0.24,0.24,0.05
-17,Enzo Fernández,Chelsea,7,630,3,3,1.45-1.55,2.78-0.22,0.21,0.21,0.4
-24,Jarrod Bowen,West Ham,7,630,2,2,2.65+0.65,1.27-0.73,0.38,0.38,0.18
-25,Bernardo Silva,Manchester City,7,630,2,1,1.50-0.50,1.33+0.33,0.21,0.21,0.19
-28,Aaron Wan-Bissaka,West Ham,7,630,2,0,0.61-1.39,0.68+0.68,0.09,0.09,0.1
-31,Nikola Milenkovic,Nottingham Forest,7,630,2,0,0.98-1.02,0,0.14,0.14,0
-34,Bryan Mbeumo,Brentford,7,630,2,1,1.02-0.98,1.64+0.64,0.15,0.15,0.23
-36,William Saliba,Arsenal,7,630,2,0,2.48+0.48,0.10+0.10,0.35,0.35,0.01
-40,Tomas Soucek,West Ham,7,606,2,0,0.80-1.20,0.17+0.17,0.12,0.12,0.03
-46,Kaoru Mitoma,Brighton,7,611,2,0,1.68-0.32,0.95+0.95,0.25,0.25,0.14
-47,Jørgen Strand Larsen,Wolverhampton Wanderers,7,600,2,1,1.92-0.08,0.40-0.60,0.29,0.29,0.06
-51,Fabian Schär,Newcastle United,7,630,1,0,0.38-0.62,0,0.05,0.05,0
-56,Ola Aina,Nottingham Forest,7,604,1,0,0.28-0.72,0.18+0.18,0.04,0.04,0.03
-87,Erling Haaland,Manchester City,7,630,1,1,3.37+2.37,0.94-0.06,0.48,0.37,0.13
-92,Maxence Lacroix,Crystal Palace,7,630,1,0,0.87-0.13,0,0.12,0.12,0
-99,Nathan Collins,Brentford,7,630,1,1,0.41-0.59,0.76-0.24,0.06,0.06,0.11
-113,Jurriën Timber,Arsenal,7,630,1,0,0.54-0.46,0.24+0.24,0.08,0.08,0.03
-114,Milos Kerkez,Bournemouth,7,626,1,0,0.23-0.77,1.68+1.68,0.03,0.03,0.24
-121,Mateus Fernandes,Southampton,7,617,1,0,1.86+0.86,0.27+0.27,0.27,0.27,0.04
-126,Bernd Leno,Fulham,7,630,0,0,0,0,0,0,0
-156,Kyle Walker-Peters,Southampton,7,630,0,1,0.11+0.11,1.34+0.34,0.02,0.02,0.19
-189,Kepa,Bournemouth,7,630,0,0,0,0,0,0,0
-190,Estupiñán,Brighton,7,630,0,1,0.22+0.22,0.97-0.03,0.03,0.03,0.14
-235,Matz Sels,Nottingham Forest,7,630,0,0,0,0,0,0,0
-238,Arijanet Muric,Ipswich,7,630,0,0,0,0,0,0,0
-247,Diogo Dalot,Manchester United,7,630,0,0,0.42+0.42,0.12+0.12,0.06,0.06,0.02
-257,Marc Guehi,Crystal Palace,7,630,0,1,0.16+0.16,0.64-0.36,0.02,0.02,0.09
-259,Dean Henderson,Crystal Palace,7,630,0,0,0,0.02+0.02,0,0,0
-260,John McGinn,Aston Villa,7,608,0,3,1.92+1.92,1.87-1.13,0.28,0.28,0.28
-274,Tyrick Mitchell,Crystal Palace,7,629,0,2,0.05+0.05,1.55-0.45,0.01,0.01,0.22
-290,Dara O'Shea,Ipswich,7,630,0,0,0.04+0.04,0,0.01,0.01,0
-298,Leif Davis,Ipswich,7,630,0,0,0.09+0.09,1.25+1.25,0.01,0.01,0.18
-299,Antonee Robinson,Fulham,7,630,0,3,0.62+0.62,1.55-1.45,0.09,0.09,0.22
-304,Radu Dragusin,Tottenham,7,614,0,0,0.03+0.03,0.02+0.02,0,0,0
-310,Moisés Caicedo,Chelsea,7,625,0,0,0.10+0.10,0.45+0.45,0.01,0.01,0.06
-317,David Raya,Arsenal,7,630,0,0,0,0,0,0,0
-338,Lewis Hall,Newcastle United,7,626,0,1,0.30+0.30,1.44+0.44,0.04,0.04,0.21
+1,Mohamed Salah,Liverpool,7,626,9,6,7.35-1.65,3.66-2.34,1.06,0.84,0.53
+2,Alexander Isak,Newcastle United,8,625,8,3,6.38-1.62,2.70-0.30,0.92,0.92,0.39
+3,Matheus Cunha,Wolverhampton Wanderers,8,720,6,3,1.49-4.51,2.30-0.70,0.19,0.19,0.29
+5,Justin Kluivert,Bournemouth,8,608,5,0,4.51-0.49,1.11+1.11,0.67,0.22,0.16
+6,Cole Palmer,Chelsea,8,714,5,1,5.10+0.10,2.26+1.26,0.64,0.45,0.29
+7,Ismaila Sarr,Crystal Palace,8,710,4,2,3.28-0.72,2.72+0.72,0.42,0.42,0.34
+8,Yoane Wissa,Brentford,8,676,4,0,2.89-1.11,0.50+0.50,0.39,0.39,0.07
+10,Alex Iwobi,Fulham,8,719,3,2,1.79-1.21,1.46-0.54,0.22,0.22,0.18
+12,Bruno Fernandes,Manchester United,8,643,3,3,2.89-0.11,1.90-1.10,0.4,0.3,0.27
+15,Dejan Kulusevski,Tottenham,8,640,3,1,1.57-1.43,1.58+0.58,0.22,0.22,0.22
+19,Enzo Fernández,Chelsea,8,649,3,4,1.45-1.55,2.83-1.17,0.2,0.2,0.39
+25,Dominic Solanke,Tottenham,7,626,2,2,2.78+0.78,1.38-0.62,0.4,0.4,0.2
+26,Jarrod Bowen,West Ham,8,720,2,2,2.81+0.81,1.80-0.20,0.35,0.35,0.22
+27,Bernardo Silva,Manchester City,8,646,2,1,1.54-0.46,1.33+0.33,0.21,0.21,0.19
+28,Chris Wood,Nottingham Forest,8,613,2,0,1.87-0.13,0.18+0.18,0.27,0.16,0.03
+30,Aaron Wan-Bissaka,West Ham,8,698,2,0,0.61-1.39,0.68+0.68,0.08,0.08,0.09
+33,Nikola Milenkovic,Nottingham Forest,8,720,2,0,0.99-1.01,0,0.12,0.12,0
+36,Bryan Mbeumo,Brentford,8,720,2,2,1.08-0.92,1.85-0.15,0.14,0.14,0.23
+39,William Saliba,Arsenal,8,720,2,0,2.48+0.48,0.62+0.62,0.31,0.31,0.08
+43,Anthony Gordon,Newcastle United,8,607,2,2,2.73+0.73,1.07-0.93,0.4,0.4,0.16
+44,Erling Haaland,Manchester City,8,720,2,1,5.47+3.47,0.94-0.06,0.68,0.59,0.12
+46,Tomas Soucek,West Ham,8,696,2,0,0.80-1.20,0.17+0.17,0.1,0.1,0.02
+53,Kaoru Mitoma,Brighton,8,701,2,0,1.99-0.01,1.33+1.33,0.26,0.26,0.17
+54,Jørgen Strand Larsen,Wolverhampton Wanderers,8,679,2,1,1.97-0.03,0.40-0.60,0.26,0.26,0.05
+56,Daniel Muñoz,Crystal Palace,7,630,2,0,2.46+0.46,0.36+0.36,0.35,0.35,0.05
+57,Morgan Rogers,Aston Villa,8,681,2,1,1.26-0.74,1.29+0.29,0.17,0.17,0.17
+58,Fabian Schär,Newcastle United,8,720,1,0,0.40-0.60,0,0.05,0.05,0
+62,Ola Aina,Nottingham Forest,8,694,1,0,0.28-0.72,0.18+0.18,0.04,0.04,0.02
+67,Martin Odegaard,Arsenal,8,671,1,2,2.24+1.24,2.67+0.67,0.3,0.2,0.36
+70,Adam Armstrong,Southampton,8,679,1,1,2.65+1.65,0.93-0.07,0.35,0.25,0.12
+73,Jean-Philippe Mateta,Crystal Palace,8,683,1,1,3.30+2.30,1.33+0.33,0.44,0.44,0.18
+79,Trevoh Chalobah,Crystal Palace,7,623,1,0,0.87-0.13,0.44+0.44,0.13,0.13,0.06
+88,Marc Cucurella,Chelsea,7,624,1,1,0.67-0.33,0.74-0.26,0.1,0.1,0.11
+92,Amad Diallo Traore,Manchester United,8,663,1,5,1.69+0.69,1.86-3.14,0.23,0.23,0.25
+94,Bruno Guimarães,Newcastle United,8,689,1,3,1.39+0.39,2.09-0.91,0.18,0.18,0.27
+97,Maxence Lacroix,Crystal Palace,8,720,1,0,0.88-0.12,0,0.11,0.11,0
+101,Pape Sarr,Tottenham,8,611,1,0,1.54+0.54,0.22+0.22,0.23,0.23,0.03
+102,Iliman Ndiaye,Everton,7,622,1,0,1.23+0.23,0.61+0.61,0.18,0.18,0.09
+104,Nathan Collins,Brentford,8,720,1,1,0.41-0.59,0.91-0.09,0.05,0.05,0.11
+106,Josko Gvardiol,Manchester City,7,630,1,0,2.20+1.20,0.70+0.70,0.31,0.31,0.1
+107,Omari Hutchinson,Ipswich,8,672,1,0,1.12+0.12,0.39+0.39,0.15,0.15,0.05
+118,Antoine Semenyo,Bournemouth,7,606,1,0,2.44+1.44,0.90+0.90,0.36,0.36,0.13
+119,João Gomes,Wolverhampton Wanderers,7,603,1,1,1.30+0.30,0.19-0.81,0.19,0.19,0.03
+120,Jurriën Timber,Arsenal,8,720,1,0,0.57-0.43,0.24+0.24,0.07,0.07,0.03
+121,Milos Kerkez,Bournemouth,8,716,1,0,0.23-0.77,1.77+1.77,0.03,0.03,0.22
+123,Murillo,Nottingham Forest,8,701,1,0,1.20+0.20,0.09+0.09,0.15,0.15,0.01
+130,Mateus Fernandes,Southampton,8,707,1,0,2.05+1.05,0.74+0.74,0.26,0.26,0.09
+131,Evanilson,Bournemouth,8,609,1,0,3.43+2.43,0.65+0.65,0.51,0.51,0.1
+137,Bernd Leno,Fulham,8,720,0,0,0,0,0,0,0
+155,Idrissa Gueye,Everton,7,609,0,0,0.12+0.12,0.49+0.49,0.02,0.02,0.07
