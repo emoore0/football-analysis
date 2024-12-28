@@ -513,14 +513,13 @@ def home():
     # plot += o.clean_sheets(5,"home")
     
 
-    plot += o.clean_sheets(5,"away")
+    # plot += o.clean_sheets(5,"away")
     
     # plot += o.corners(7,"home")
     
-    # plot += o.btts(5)
+    plot += o.btts(5)
     
-    # plot += o.the_best('./the-best.csv')
-    
+    plot += o.the_best('./the-best.csv')
 
     return render_template_string(plot)
 
