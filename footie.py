@@ -516,7 +516,6 @@ def home():
     
     plot += o.corners(7,"home")
     plot += o.corners(7,"away")
-
     plot += o.btts(5)
     
     plot += o.the_best('./the-best2.csv')
