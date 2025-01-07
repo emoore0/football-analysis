@@ -356,18 +356,27 @@ r = footie('./data/SWZ.csv')
 
 @app.route('/')
 def home():
-    plot = '<h1>Argentina</h1><br>'
-    plot += a.btts(5)
+    # plot = '<h1>Argentina</h1><br>'
+    # plot += a.btts(5)
     
-    plot += '<h1>Brazil</h1><br>'
-    plot += b.btts(5)
+    # plot += '<h1>Brazil</h1><br>'
+    # plot += b.btts(5)
 
-    plot += '<h1>Denmark</h1><br>'
-    plot += c.btts(5)
+    # plot += '<h1>Denmark</h1><br>'
+    # #plot += c.btts(5)
 
     plot += '<h1>France</h1><br>'
     plot += d.btts(5)
+    plot += d.outcomes(7,"home")
+     
 
+    plot += d.outcomes(7,"away")
+     
+
+    plot += d.clean_sheets(5,"home")
+     
+
+    plot += d.clean_sheets(5,"away")
     
     #return render_template_string(report)
     plot += '<h1>Spain</h1><br>'
@@ -375,105 +384,96 @@ def home():
     plot += e.btts(5)
      
    
-    # plot += e.outcomes(7,"away")
+    plot += e.outcomes(7,"away")
      
     
-    # plot += e.clean_sheets(5,"home")
-     
- 
-    # plot += e.clean_sheets(5,"away")
+    plot += e.clean_sheets(5,"home")
+
+    plot += e.clean_sheets(5,"away")
      
   
     plot += '<h1>Italy</h1><br>'
     plot += f.btts(5)
-    # plot += f.outcomes(7,"home")
+    plot += f.outcomes(7,"home")
      
 
-    # plot += f.outcomes(7,"away")
+    plot += f.outcomes(7,"away")
      
 
-    # plot += f.clean_sheets(5,"home")
+    plot += f.clean_sheets(5,"home")
      
 
-    # plot += f.clean_sheets(5,"away")
+    plot += f.clean_sheets(5,"away")
      
 
     plot += '<h1>Greece</h1><br>'
-    # plot += g.outcomes(7,"home")
     plot += g.btts(5) 
-
-    # plot += g.outcomes(7,"away")
-     
-
-    # plot += g.clean_sheets(5,"home")
+    plot += g.outcomes(7,"home")
     
 
-    # plot += g.clean_sheets(5,"away")
+    plot += g.outcomes(7,"away")
+     
+
+    plot += g.clean_sheets(5,"home")
+    
+
+    plot += g.clean_sheets(5,"away")
     
 
     plot += '<h1>Germany</h1><br>'
-    # plot += h.outcomes(7,"home")
     plot += h.btts(5)
-    
+    plot += h.outcomes(7,"home")
 
-    # plot += h.outcomes(7,"away")
- 
+    plot += h.outcomes(7,"away")
 
-    # plot += h.clean_sheets(5,"home")
+    plot += h.clean_sheets(5,"home")
     
-    
-    # plot += h.clean_sheets(5,"away")
+    plot += h.clean_sheets(5,"away")
    
 
     plot += '<h1>Portugal</h1><br>'
-    # plot += i.outcomes(7,"home")
     plot += i.btts(5)
-    
+    plot += i.outcomes(7,"home")
 
-    # plot += i.outcomes(7,"away")
+    plot += i.outcomes(7,"away")
  
 
-    # plot += i.clean_sheets(5,"home")
+    plot += i.clean_sheets(5,"home")
  
 
-    # plot += i.clean_sheets(5,"away")
+    plot += i.clean_sheets(5,"away")
     
  
     
     plot += '<h1>Netherlands</h1><br>'
-    # plot += l.outcomes(7,"home")
     plot += l.btts(5)
-
+    plot += l.outcomes(7,"home")
    
-    # plot += l.outcomes(7,"away")
+    plot += l.outcomes(7,"away")
     
-    
-    # plot += l.clean_sheets(5,"home")
+    plot += l.clean_sheets(5,"home")
 
 
     
-    # plot += l.clean_sheets(5,"away")
+    plot += l.clean_sheets(5,"away")
    
     
     
     plot += '<h1>Scotland</h1><br>'
-    # plot += n.outcomes(7,"home")
     plot += n.btts(5)
+    plot += n.outcomes(7,"home")
   
-  
-    # plot += n.outcomes(7,"away")
+    plot += n.outcomes(7,"away")
+    
+    plot += n.clean_sheets(5,"home")
 
-    
-    # plot += n.clean_sheets(5,"home")
- 
-    
-    # plot += n.clean_sheets(5,"away")
+    plot += n.clean_sheets(5,"away")
     
   
     
-    plot += '<h1>Sweeden</h1><br>'
-    # plot += q.outcomes(7,"home")
-    plot += q.btts(5)
+    # plot += '<h1>Sweeden</h1><br>'
+    # # plot += q.outcomes(7,"home")
+    # plot += q.btts(5)
     
     # plot += q.outcomes(7,"away")
 
@@ -485,41 +485,41 @@ def home():
    
     
     plot += '<h1>Championship</h1><br>'
-    # plot += j.outcomes(7,"home")
+
     plot += j.btts(5)
- 
+    plot += j.outcomes(7,"home")
     
-    # plot += j.outcomes(7,"away")
+    plot += j.outcomes(7,"away")
   
     
-    # plot += j.clean_sheets(5,"home")
-  
+    plot += j.clean_sheets(5,"home")
+    plot += j.clean_sheets(5,"away")
+
+    # plot += '<h1>Ireland</h1><br>'
+    # plot += p.btts(5)
     
-    # plot += j.clean_sheets(5,"away")
-    plot += '<h1>Ireland</h1><br>'
-    plot += p.btts(5)
-    
-    plot += '<h1>Switzerland</h1><br>'
-    plot += r.btts(5)
+    # plot += '<h1>Switzerland</h1><br>'
+    # plot += r.btts(5)
 
     plot += '<h1>England</h1><br>'
 
-    # plot += o.outcomes(7,"home")
+    plot += o.outcomes(7,"home")
    
    
-    # plot += o.outcomes(7,"away")
+    plot += o.outcomes(7,"away")
    
     
-    # plot += o.clean_sheets(5,"home")
+    plot += o.clean_sheets(5,"home")
     
 
-    # plot += o.clean_sheets(5,"away")
+    plot += o.clean_sheets(5,"away")
     
-    # plot += o.corners(7,"home")
+    plot += o.corners(7,"home")
+    plot += o.corners(7,"away")
 
     plot += o.btts(5)
     
-    plot += o.the_best('./the-best-070125.csv')
+    plot += o.the_best('./the-best2.csv')
 
     return render_template_string(plot)
 
