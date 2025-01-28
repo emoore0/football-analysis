@@ -510,7 +510,6 @@ def home():
    
     
     plot += o.clean_sheets(5,"home")
-    
 
     plot += o.clean_sheets(5,"away")
     
