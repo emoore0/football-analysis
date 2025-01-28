@@ -383,7 +383,7 @@ def home():
     # plot += e.outcomes(7,"home")
     plot += e.btts(5)
      
-   
+    plot += e.outcomes(7,"home")
     plot += e.outcomes(7,"away")
      
     
@@ -518,7 +518,7 @@ def home():
     plot += o.corners(7,"away")
     plot += o.btts(5)
     
-    plot += o.the_best('./the-best2.csv')
+    plot += o.the_best('./the-best-280125.csv')
 
     return render_template_string(plot)
 
