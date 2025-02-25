@@ -34,7 +34,7 @@ jobs:
       with:
         host: ${{ secrets.AZURE_VM_HOST }}
         username: azureuser
-        key: ${{ secrets.AZURE_VM_SSH_KEY }}
+        password: ${{ secrets.AZURE_VM_PASSWORD }}  # Use password instead of key
         script: |
           sudo docker pull ${{ secrets.DOCKER_USERNAME }}/football-app:latest
           sudo docker stop football-app || true
